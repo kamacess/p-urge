@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#map {
+  width: 80vw;
+  height: 80vh;
+  margin: 5vw 10vw;
+  border: 1px solid black;
 }

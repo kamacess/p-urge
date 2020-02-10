@@ -41,8 +41,7 @@ app.use(flash());
 app.locals.site_url = `http://localhost:${process.env.PORT}`;
 // used in front end to perform ajax request (var instead of hardcoded)
 
-
-const basePageRouter = require("./routes/index");
-app.use("/", basePageRouter);
+app.use("/", require("./routes/index"));
+app.use("/auth", require("./routes/auth"));
 
 module.exports = app;
