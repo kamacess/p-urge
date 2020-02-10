@@ -1,41 +1,48 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+console.log("node says : waxOn/waxOff !");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+require("dotenv").config();
+require("./config/mongodb"); 
+// require("./helpers/hbs");
 
-var app = express();
+const express = require("express");
+const hbs = require("hbs");
+const app = express();
+const session = require("express-session");
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo")(session);
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-app.use(logger('dev'));
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views");
+app.use(express.static("public"));
+hbs.registerPartials(__dirname + "/views/partials");
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// SESSION SETUP
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 60000 }, // in millisec
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    }),
+    saveUninitialized: true,
+    resave: true
+  })
+);
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(flash());
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.locals.site_url = `http://localhost:${process.env.PORT}`;
+// used in front end to perform ajax request (var instead of hardcoded)
+
+
+const basePageRouter = require("./routes/index");
+app.use("/", basePageRouter);
 
 module.exports = app;
