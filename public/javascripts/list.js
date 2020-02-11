@@ -1,3 +1,5 @@
+var toilets;
+
 function createList() {
     toilets = JSON.parse(document.getElementById("toilets_batch").value);
     var containerElement = document.getElementById("tbody-list");

@@ -2,7 +2,7 @@ var toilets;
 
 function initMap() {
     toilets = JSON.parse(document.getElementById("toilets_batch").value);
-    console.log(toilets[0]);
+    // console.log(typeof toilets[0], toilets[0]);
     var paname = {
         lat: 48.856614,
         lng: 2.3522219

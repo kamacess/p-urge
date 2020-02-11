@@ -1,4 +1,4 @@
-console.log("yo");
+// console.log("yo");
 
 let toiletsToDisplay;
 const toiletsApi = axios.create({
@@ -13,6 +13,7 @@ function filterInputs(e) {
     // fabrique un objet avec les clés (name) de chaque input checked associé à la valeur true
     const search = [...checkedInputs].reduce((a, v) => {
         a[v.name] = true;
+        console.log(a);
         return a;
     }, {});
 
@@ -23,6 +24,7 @@ function filterInputs(e) {
             }
         })
         .then(apiRes => {
+            console.log(apiRes);
             toiletsToDisplay = apiRes.data;
             toiletsDisplay();
         })
