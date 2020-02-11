@@ -46,15 +46,26 @@
       <p>Is it accessible to persons with reduced mobility?</p>
 
         <div>
-          <input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="true" checked>
+          <input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="true">
           <label for="acces_pmr" class="label">Yes</label>
         </div>
 
         <div>
-          <input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="false">
+          <input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="false" checked>
           <label for="acces_pmr" class="label">No</label>
         </div>
     </div>
+
+<div class="form-item-wrapper flexed-item">
+        <label for="arrondissement" class="label"> Arrondissement </label>
+        <select name="arrondissement" id="arrondissement">
+            <option value="">--Please choose an arrondissement--</option>
+            <option value="URINOIR">urinoir</option>
+            <option value="TOILETTES">toilettes</option>
+            <option value="SANISETTE">sanisette</option>
+        </select>
+    </div>
+
 
     <div class="form-item-wrapper flexed-item">
       <label for="relais_bebe" class="label">Baby change</label>
