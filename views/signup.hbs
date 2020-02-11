@@ -1,1 +1,27 @@
 <p>Yo sign up</p>
+
+<form method="post" action="/signup" class="form">
+    <h1 class="title">Enjoy yourself, empty your bladder, and sign in!</h1>
+
+    <label for="pseudo" class="label">nickname</label>
+    <input class="input" name="pseudo" id="pseudo" type="text" value="toilett4t0R75">
+
+    <label for="email" class="label">email</label>
+    <input class="input" name="email" id="email" type="text" value="yo@gui.com">
+
+    <label for="password" class="label">password</label>
+    <input class="input" name="password" type="password" value="12345">
+
+    {{!-- <div class="row">
+        <label for="avatar">avatar</label>
+        <i id="avatar-icon" class="is-clickable toggle-active fa fa-user fa-lg"></i> 
+       <input id="input-file" type="file" class="is-hidden" name="avatar">
+        <input id="input-file" type="file"  name="avatar">
+    </div> --}}
+
+    <button class="btn">go !</button>
+    <hr>
+    <p>
+        Already have an account ? <a class="link" href="/signin">please signin !</a>
+    </p>
+</form>

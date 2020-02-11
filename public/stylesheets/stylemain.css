@@ -125,3 +125,8 @@ body {
       flex-direction: row;
     }
   }
+
+  #list-filter {
+    list-style: none;
+    
+  }

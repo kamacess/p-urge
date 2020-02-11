@@ -9,15 +9,27 @@
     <div class="flex-container">
         <div id="filters" class="rouge">
             <h3>filter by...</h3>
-            <ul>
-                <li>arrondissement</li>
-                <li>washbasin</li>
-                <li>baby changing station</li>
-                <li>type</li>
-                <li>PRM accessiblity</li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <ul id="list-filter">
+                <li>
+                    <label for="input_arrondissement">Arrondissement / postcode</label>
+                    <input id="input_arrondissement" type="text" class="filter-arrondissement" placeholder="ex: 75011"/>
+                </li>
+                <li>
+                    <label for="input_baby">Baby change</label>
+                    <input id="filter-baby" name="relais_bebe" type="checkbox" class="filters"/>
+                </li>
+                <li>
+                    <label for="input_PMR">PMR access</label>
+                    <input id="filter-pmr" name="acces_pmr" type="checkbox" class="filters"/>
+                </li>
+                <li>
+                    <label for="input_sink">Sink</label>
+                    <input id="filter-sink" name="lavabo" type="checkbox" class="filters"/>
+                </li>
+                <li>
+                    <label for="input_urinal">No urinal</label>
+                    <input id="filter-urinal" name="urinoir" type="checkbox" class="filters"/>
+                </li>
             </ul>
         </div>
 
@@ -34,61 +46,8 @@
                     <th>hours</th>
                     <th>rating</th>
                 </tr>
-                <tbody>
+                <tbody id="tbody-list">
 
-                    <tr>
-                        {{#each toilets}}
-                        <td>{{this.arrondissement}}</td>
-                        <td>{{this.adresse}}</td>
-                        <td>{{this.relais_bebe}}</td>
-                        <td>{{this.lavabo}}</td>
-                        <td>{{this.acces_PMR}}</td>
-                        <td>{{this.type}}</td>
-                        <td>{{this.horaire}}</td>
-                        {{/each}}
-                    </tr>
-
-
-                    {{!-- <tr>
-                        <td>28200</td>
-                        <td>38 rue tartempion</td>
-                        <td>true</td>
-                        <td>true</td>
-                        <td>false</td>
-                        <td>sanisette</td>
-                        <td>8h-22h</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>28200</td>
-                        <td>38 rue tartempion</td>
-                        <td>true</td>
-                        <td>true</td>
-                        <td>false</td>
-                        <td>sanisette</td>
-                        <td>8h-22h</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>28200</td>
-                        <td>38 rue tartempion</td>
-                        <td>true</td>
-                        <td>true</td>
-                        <td>false</td>
-                        <td>sanisette</td>
-                        <td>8h-22h</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>28200</td>
-                        <td>38 rue tartempion</td>
-                        <td>true</td>
-                        <td>true</td>
-                        <td>false</td>
-                        <td>sanisette</td>
-                        <td>8h-22h</td>
-                        <td></td>
-                    </tr> --}}
                 </tbody>
             </table>
         </div>
