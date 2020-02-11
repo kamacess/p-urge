@@ -1,5 +1,7 @@
 var map;
 var marker;
+var lng;
+var lat;
 
 function initMap() {
  var paname = {
@@ -17,8 +19,8 @@ function initMap() {
 }
 
 function placeMarkerAndPanTo(latLng, map) {
-    console.log(latLng.lat())
-    console.log(latLng.lng())
+    var lng = latLng.lng()
+    var lat = latLng.lat();
   var marker = new google.maps.Marker({
     position: latLng,
     map: map    
