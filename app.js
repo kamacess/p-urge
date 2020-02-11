@@ -1,7 +1,7 @@
 console.log("node says : waxOn/waxOff !");
 
 require("dotenv").config();
-require("./config/mongodb"); 
+require("./config/mongodb");
 // require("./helpers/hbs");
 
 const express = require("express");
@@ -17,10 +17,9 @@ app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 app.use(express.static("public"));
 hbs.registerPartials(__dirname + "/views/partials");
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
-
 
 // SESSION SETUP
 app.use(
@@ -43,5 +42,5 @@ app.locals.site_url = `http://localhost:${process.env.PORT}`;
 
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
-
+app.use("/", require("./routes/toilets"));
 module.exports = app;
