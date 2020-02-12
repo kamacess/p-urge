@@ -1,13 +1,13 @@
-<section id="main">
+
 
     <div class="vert">
         <h2>where should I pee?</h2>
         <div id="map"></div>
         <input id="toilets_batch" type="hidden" value="{{toilets}}">
     </div>
-
-    <div class="flex-container">
-        <div id="filters" class="rouge">
+<section id="main" class="grid">
+    
+    <div id="filters" class="rouge">
             <h3>filter by...</h3>
             <ul id="list-filter">
                 <li>
@@ -31,58 +31,59 @@
                     <input id="filter-urinal" name="urinal" type="checkbox" class="filters"/>
                 </li>
             </ul>
-        </div>
+    </div>
 
-        <div id="list" class="mauve">
+    <div id="list" class="mauve">
             <h3>list</h3>
             <table>
-                <tr>
-                    <th>arrondissement</th>
-                    <th>address</th>
-                    <th>baby</th>
-                    <th>wahsbin</th>
-                    <th>PRM</th>
-                    <th>type</th>
-                    <th>hours</th>
-                    <th>rating</th>
-                </tr>
+                    <tr>
+                        <th>arrondissement</th>
+                        <th>address</th>
+                        <th>baby</th>
+                        <th>wahsbin</th>
+                        <th>PRM</th>
+                        <th>type</th>
+                        <th>hours</th>
+                        <th>rating</th>
+                    </tr>
                 <tbody id="tbody-list">
-
                 </tbody>
             </table>
-        </div>
     </div>
-</section>
 
-<section id="about" class="jaune">
+
+
+    <div id="about" class="jaune">
     <h3>about</h3>
 
-    <div class="flex-container">
+        <div id="article-wrapper" >
 
-        <article id="alix">
-            <h4>alix</h4>
-            <img src="./../images/pexels-photo-1130626.jpeg" alt="alix">
-            <p>
+            <article id="alix" class="flex-container">
+                <h4>alix</h4>
+                <img src="./../images/pexels-photo-1130626.jpeg" alt="alix">
+                <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. totam commodi illo vero soluta!
-            </p>
-        </article>
+                </p>
+            </article>
 
-        <article id="pauline">
-            <h4>pauline</h4>
-            <img src="./../images/pexels-photo-1937394.jpeg" alt="pauline">
-            <p>
+            <article id="pauline" class="flex-container">
+                <h4>pauline</h4>
+                <img src="./../images/pexels-photo-1937394.jpeg" alt="pauline">
+                <p>
                 Dicta aspernatur aut optio inventore sed aperiam possimus cum eligendi molestiae hic
-            </p>
-        </article>
+                </p>
+            </article>
 
-        <article id="cécile">
-            <h4>cécile</h4>
-            <img src="./../images/pexels-photo-789812.jpeg" alt="cécile">
-            <p>
+            <article id="cécile" class="flex-container">
+                <h4>cécile</h4>
+                <img src="./../images/pexels-photo-789812.jpeg" alt="cécile">
+                <p>
                 laborum minus vitae exercitationem beatae,
-            </p>
-        </article>
-    </div>
+                </p>
+            </article>
+
+        </div>
+     </div>
 </section>
 <footer>
     <p>site extrêmement utile réalisé pendant le bootcamp développement web de janvier 2020 à ironhack paris</p>

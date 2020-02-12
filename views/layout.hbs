@@ -3,11 +3,12 @@
 
 <head>
   <title>{{title}}</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/stylemap.css' />
   <link rel='stylesheet' href='/stylesheets/stylemain.css' />
+  <link rel="stylesheet" href="/stylesheets/dropdown.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj33wEHIPkyNq4oYo3PfEHJuk--dp05bQ"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   {{#each scripts}}
@@ -20,21 +21,27 @@
 </head>
 
 <body>
-  <nav>
-    <div>
-        <h1>
-            Pipinterest
-        </h1>
+  <nav class="nav minigrid">
+     <div class="dropdown">
+      <img class="dropbtn" src="./../images/bars-solid.png">
+      <div class="dropdown-content">
+        <a href="/">home</a>
+        <a href="/signin">login</a>
+        <a href="/signup">admin</a>
+        <a href="/en/">en/fr</a>
+      </div>
+     </div>
+    <div id="titre">
+      <h1>
+          Pipinterest
+      </h1>
     </div>
-    <div class="nav">
-        <ul>
-            <li><a href="http://">home</a> </li>
-            <li><a href="http://">login</a> </li>
-            <li><a href="http://">admin</a> </li>
-            <li><a href="http://">en/fr</a> </li>
-        </ul>
-    </div>
-</nav>
+ 
+
+
+ 
+   
+  </nav>
 
   {{{body}}}
 </body>
