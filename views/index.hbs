@@ -1,92 +1,91 @@
-
-
-    <div class="vert">
-        <h2>where should I pee?</h2>
-        <div id="map"></div>
-        <input id="toilets_batch" type="hidden" value="{{toilets}}">
-    </div>
+<div class="vert">
+    <h2>where should I pee?</h2>
+    <div id="map"></div>
+    <input id="toilets_batch" type="hidden" value="{{toilets}}">
+</div>
 <section id="main" class="grid">
-    
+
     <div id="filters" class="rouge">
-            <h3>filter by...</h3>
-            <ul id="list-filter">
-                <li>
-                    <label for="input_arrondissement">Arrondissement / postcode</label>
-                    <select name="arrondissement" id="arrondissement">
-                        <option value="75001">75001</option>
-                        <option value="75002">75002</option>
-                        <option value="75003">75003</option>
-                        <option value="75004">75004</option>
-                        <option value="75005">75005</option>
-                        <option value="75006">75006</option>
-                        <option value="75007">75007</option>
-                        <option value="75008">75008</option>
-                        <option value="75009">75009</option>
-                        <option value="75010">75010</option>
-                        <option value="75011">75011</option>
-                        <option value="75012">75012</option>
-                        <option value="75013">75013</option>
-                        <option value="75014">75014</option>
-                        <option value="75015">75015</option>
-                        <option value="75016">75016</option>
-                        <option value="75017">75017</option>
-                        <option value="75018">75018</option>
-                        <option value="75019">75019</option>
-                        <option value="75020">75020</option>
-                    </select>
-                </li>
-                <li>
-                    <label for="input_baby">Baby change</label>
-                    <input id="filter-baby" name="relais_bebe" type="checkbox" class="filters" />
-                </li>
-                <li>
-                    <label for="input_PMR">PMR access</label>
-                    <input id="filter-pmr" name="acces_pmr" type="checkbox" class="filters" />
-                </li>
-                <li>
-                    <label for="input_sink">Sink</label>
-                    <input id="filter-sink" name="lavabo" type="checkbox" class="filters" />
-                </li>
-            </ul>
+        <h3>filter by...</h3>
+        <ul id="list-filter">
+            <li>
+                <label for="input_arrondissement">Arrondissement / postcode</label>
+                <select name="arrondissement" id="arrondissement">
+                    <option class="arrondissement-value" value="all">All</option>
+                    <option class="arrondissement-value" value="75001">75001</option>
+                    <option class="arrondissement-value" value="75002">75002</option>
+                    <option class="arrondissement-value" value="75003">75003</option>
+                    <option class="arrondissement-value" value="75004">75004</option>
+                    <option class="arrondissement-value" value="75005">75005</option>
+                    <option class="arrondissement-value" value="75006">75006</option>
+                    <option class="arrondissement-value" value="75007">75007</option>
+                    <option class="arrondissement-value" value="75008">75008</option>
+                    <option class="arrondissement-value" value="75009">75009</option>
+                    <option class="arrondissement-value" value="75010">75010</option>
+                    <option class="arrondissement-value" value="75011">75011</option>
+                    <option class="arrondissement-value" value="75012">75012</option>
+                    <option class="arrondissement-value" value="75013">75013</option>
+                    <option class="arrondissement-value" value="75014">75014</option>
+                    <option class="arrondissement-value" value="75015">75015</option>
+                    <option class="arrondissement-value" value="75016">75016</option>
+                    <option class="arrondissement-value" value="75017">75017</option>
+                    <option class="arrondissement-value" value="75018">75018</option>
+                    <option class="arrondissement-value" value="75019">75019</option>
+                    <option class="arrondissement-value" value="75020">75020</option>
+                </select>
+            </li>
+            <li>
+                <label for="input_baby">Baby change</label>
+                <input id="filter-baby" name="relais_bebe" type="checkbox" class="filters" />
+            </li>
+            <li>
+                <label for="input_PMR">PMR access</label>
+                <input id="filter-pmr" name="acces_pmr" type="checkbox" class="filters" />
+            </li>
+            <li>
+                <label for="input_sink">Sink</label>
+                <input id="filter-sink" name="lavabo" type="checkbox" class="filters" />
+            </li>
+        </ul>
     </div>
 
     <div id="list" class="mauve">
-            <h3>list</h3>
-            <table>
-                    <tr>
-                        <th>arrondissement</th>
-                        <th>address</th>
-                        <th>baby</th>
-                        <th>wahsbin</th>
-                        <th>PRM</th>
-                        <th>type</th>
-                        <th>hours</th>
-                        <th>rating</th>
-                    </tr>
-                <tbody id="tbody-list">
-                </tbody>
-            </table>
-            {{!-- <ul class="pagination">
+        <h3>list</h3>
+        <table>
+            <tr>
+                <th>arrondissement</th>
+                <th>address</th>
+                <th>baby</th>
+                <th>wahsbin</th>
+                <th>PRM</th>
+                <th>type</th>
+                <th>hours</th>
+                <th>rating</th>
+            </tr>
+            <tbody id="tbody-list">
+            </tbody>
+        </table>
+        {{!-- <ul class="pagination">
                 <li><button id="btn-previous">Previous</button></li>
                 <li><button id="btn-first">1</button></li>
                 <li><button id="btn-last"></button></li>
                 <li><button id="btn-next">Next</button></li>
             </ul> --}}
-        </div>
+    </div>
     </div>
 
 
 
     <div id="about" class="jaune">
-    <h3>about</h3>
+        <h3>about</h3>
 
-        <div id="article-wrapper" >
+        <div id="article-wrapper">
 
             <article id="alix" class="flex-container">
                 <h4>alix</h4>
                 <img src="./../images/pexels-photo-1130626.jpeg" alt="alix">
                 <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. totam commodi illo vero soluta!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam commodi illo vero soluta!
                 </p>
             </article>
 
@@ -94,7 +93,7 @@
                 <h4>pauline</h4>
                 <img src="./../images/pexels-photo-1937394.jpeg" alt="pauline">
                 <p>
-                Dicta aspernatur aut optio inventore sed aperiam possimus cum eligendi molestiae hic
+                    Dicta aspernatur aut optio inventore sed aperiam possimus cum eligendi molestiae hic
                 </p>
             </article>
 
@@ -102,12 +101,12 @@
                 <h4>cécile</h4>
                 <img src="./../images/pexels-photo-789812.jpeg" alt="cécile">
                 <p>
-                laborum minus vitae exercitationem beatae,
+                    laborum minus vitae exercitationem beatae,
                 </p>
             </article>
 
         </div>
-     </div>
+    </div>
 </section>
 <footer>
     <p>site extrêmement utile réalisé pendant le bootcamp développement web de janvier 2020 à ironhack paris</p>
