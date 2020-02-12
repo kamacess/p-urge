@@ -7,8 +7,10 @@ router.get("/", function (req, res) {
   toiletModel
     .find()
     .then(toilets => {
+      
       res.render("index", {
         scripts: ["google"],
+        
         toilets: JSON.stringify(toilets)
       });
     })
