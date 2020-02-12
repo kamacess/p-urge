@@ -1,10 +1,13 @@
 // console.log("yo");
+// import {
+//     paginate,
+//     createList
+// } from "./list.js";
 
 let toiletsToDisplay;
 const toiletsApi = axios.create({
     baseURL: "http://localhost:3000"
 });
-
 
 function filterInputs(e) {
     // récupère tous les input checked
@@ -25,8 +28,16 @@ function filterInputs(e) {
         })
         .then(apiRes => {
             console.log(apiRes);
+            var containerElement = document.getElementById("tbody-list");
+            containerElement.innerHTML = ""
             toiletsToDisplay = apiRes.data;
-            toiletsDisplay();
+            // console.log(paginate(toiletsToDisplay, 1, 10))
+            // createList(paginate(toiletsToDisplay, 1, 10))
+            let toilets = toiletsToDisplay.sort(function (a, b) {
+                return parseFloat(a.arrondissement) - parseFloat(b.arrondissement);
+            });
+            toiletsDisplay(toilets);
+
         })
         .catch(apiErr => console.error(apiErr));
 }
@@ -35,10 +46,10 @@ document.querySelectorAll('.filters').forEach(
     input => input.oninput = filterInputs
 );
 
-function toiletsDisplay() {
+function toiletsDisplay(items) {
     const toiletsParent = document.getElementById("tbody-list");
     toiletsParent.innerHTML = "";
-    toiletsToDisplay.forEach(toilet => {
+    items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.innerHTML = `<td>${toilet.arrondissement}</td>
                         <td>${toilet.adresse}</td>
