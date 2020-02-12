@@ -1,2 +1,4 @@
 /node_modules
 .env
+/bin/seeds-toilets.js
+/bin/www

@@ -1,0 +1,37 @@
+<table>
+    <tr>
+        <th>
+            <th>ID</th>
+            <th>arrondissement</th>
+            <th>adresse</th>
+            <th>geopoint2D</th>
+            <th>hours</th>
+            <th>type</th>
+            <th>PRM</th>
+            <th>baby</th>
+            <th>sink</th>
+            <th>rating</th>
+            <th>descriptions</th>
+            <th>photos</th>
+            <th>edit</th>
+            <th>delete</th>
+        </th>
+    </tr>
+
+    <tbody>
+        <td>{{this.recordid}}</td>
+        <td>{{this.arrondissement}}</td>
+        <td>{{this.adresse}}</td>
+        <td>{{this.geo_point_2d}}</td>
+        <td>{{this.horaire}}</td>
+        <td>{{this.type}}</td>
+        <td>{{this.acces_pmr}}</td>
+        <td>{{this.relais_bebe}}</td>
+        <td>{{this.lavabo}}</td>
+        <td>{{this.rate}}</td>
+        <td>{{this.user_descriptions}}</td>
+        <td>{{this.user_photos}}</td>
+        <td><a href="/toilet/:{{this._id}}/edit"><img src="./../images/edit.png" alt="edit"></a></td>
+        <td><a href="/toilet/:{{this._id}}/erase"><img src="./../images/erase.png" alt="erase"></a></td>
+    </tbody>
+</table>

@@ -4,12 +4,10 @@
 //     createList
 // } from "./list.js";
 
-
 let toiletsToDisplay;
 const toiletsApi = axios.create({
     baseURL: "http://localhost:3000"
 });
-
 
 function filterInputs(e) {
     // récupère tous les input checked
