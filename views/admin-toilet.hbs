@@ -1,6 +1,6 @@
 <table>
     <tr>
-        <th>
+        
             <th>ID</th>
             <th>arrondissement</th>
             <th>adresse</th>
@@ -15,10 +15,12 @@
             <th>photos</th>
             <th>edit</th>
             <th>delete</th>
-        </th>
+        
     </tr>
 
     <tbody>
+        {{#each toilets}}
+        <tr>
         <td>{{this.recordid}}</td>
         <td>{{this.arrondissement}}</td>
         <td>{{this.adresse}}</td>
@@ -31,7 +33,10 @@
         <td>{{this.rate}}</td>
         <td>{{this.user_descriptions}}</td>
         <td>{{this.user_photos}}</td>
-        <td><a href="/toilet/:{{this._id}}/edit"><img src="./../images/edit.png" alt="edit"></a></td>
-        <td><a href="/toilet/:{{this._id}}/erase"><img src="./../images/erase.png" alt="erase"></a></td>
+        <td><a href="/{{this._id}}/edit"><img src="./../images/edit.png" alt="edit"></a></td>
+        <td><a href="/{{this._id}}/delete"><img src="./../images/erase.png" alt="delete this toilet"></a></td>
+        <td><a href="/{{this._id}}"></a></td>
+        </tr>
+        {{/each}}
     </tbody>
 </table>

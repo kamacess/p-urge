@@ -2,6 +2,8 @@ const express = require("express");
 const router = new express.Router();
 const toiletModel = require("../models/Toilet");
 const uploader = require("../config/cloudinary");
+
+// CRÉATION D'UN NOUVEAU CHIOTTE (CREATE)
 router.get("/create-toilet", (req, res) => {
   res.render("newtoilet", { scripts: ["userMap"] });
 });
@@ -45,13 +47,40 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
     .catch(error => console.error(error));
 });
 
-router.get("/delete/:id", (req, res, next) => {
-  albumModel
+// AFFICHAGE DE TOUS LES CHIOTTES (READ)
+router.get("/dashboard", (req, res) => {
+  toiletModel
+  .find()
+  .then(dbRes => {
+    res.render("admin-toilet", {toilets: dbRes 
+  })
+  .catch(dbErr => console.error(dbErr))
+})
+});
+
+
+// AFFICHAGE D'UN SEUL CHIOTTE
+
+router.get("/:id", (req, res) => {
+  toiletModel
+    .findById(req.params.id)
+    .then(toilet => {
+      res.render("toilet-id", { toilet });
+    })
+    .catch();
+});
+
+// MISE À JOUR D'UN CHIOTTE (UPDATE)
+
+
+// EFFACEMENT D'UN CHIOTTE (DELETE)
+router.get("/:id/delete", (req, res) => {
+  toiletModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
-      res.send("success toilet successfully created");
+      res.send("success toilet successfully deleted");
     })
-    .catch(error => console.error(error));
+    .catch(error => console.log(error));
 });
 
 

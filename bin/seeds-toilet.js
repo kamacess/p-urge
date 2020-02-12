@@ -2,7 +2,7 @@ const toiletModel = require("../models/Toilet");
 const mongoose = require('mongoose');
 
 mongoose
-    .connect('mongodb://localhost/toiletDB', {
+    .connect(process.env.MONGO_URI, {
         useNewUrlParser: true
     })
     .then(x => {
