@@ -1,7 +1,5 @@
 var map;
 var marker;
-var lng;
-var lat;
 
 function initMap() {
  var paname = {
@@ -19,13 +17,15 @@ function initMap() {
 }
 
 function placeMarkerAndPanTo(latLng, map) {
-    lng = latLng.lng()
-    lat = latLng.lat();
   var marker = new google.maps.Marker({
     position: latLng,
     map: map    
   });
   map.panTo(latLng);
+  var lat = document.querySelector("#mapUser-lat")
+  var lng = document.querySelector("#mapUser-lng")
+  lng.value = latLng.lng()
+  lat.value = latLng.lat()
 }
 initMap();
 

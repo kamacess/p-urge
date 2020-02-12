@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const toiletSchema = new Schema({
-    recordid: {type: String, required: true, unique: true},
     arrondissement: String,
     adresse: String,
     geo_point_2d: [Number],
@@ -12,9 +11,10 @@ const toiletSchema = new Schema({
     type: {type: String, enum: ["TOILETTES", "SANISETTE", "LAVATORY", "URINOIR", "WC PUBLICS PERMANENTS"]},
     relais_bebe: Boolean,
     lavabo: Boolean,
-    user_descriptions: [String],
+    user_descriptions: String,
     rate: Number,
-    user_photos: String
+    user_photos: String,
+    recordid: String
 });
 
 const toiletModel = mongoose.model("toilet", toiletSchema);
