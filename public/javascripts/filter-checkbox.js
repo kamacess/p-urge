@@ -19,10 +19,15 @@ export function filterInputs(e) {
         return a;
     }, {});
 
+    let arrondSelector = document.getElementById("arrondissement");
+    let selectedArr = arrondSelector.options[arrondSelector.selectedIndex].value
+
+
     // get le resultat du serveur
     toiletsApi.get("/filter", {
             params: {
-                search
+                search,
+                selectedArr
             }
         })
         .then(apiRes => {

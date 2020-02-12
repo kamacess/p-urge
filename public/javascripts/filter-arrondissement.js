@@ -8,12 +8,19 @@ const toiletsApi = axios.create({
 let arrondSelector = document.getElementById("arrondissement");
 
 arrondSelector.onchange = function (e) {
-    var arrSelected = e.target.value;
+    var selectedArr = e.target.value;
+
+    const checkedInputs = document.querySelectorAll('.filters:checked');
+    const search = [...checkedInputs].reduce((a, v) => {
+        a[v.name] = true;
+        return a;
+    }, {});
 
     toiletsApi
-        .get("/filter-arr", {
+        .get("/filter", {
             params: {
-                arrSelected
+                selectedArr,
+                search
             }
         })
         .then(apiRes => {
