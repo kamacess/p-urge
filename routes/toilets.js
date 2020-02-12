@@ -67,11 +67,28 @@ router.get("/:id", (req, res) => {
     .then(toilet => {
       res.render("toilet-id", { toilet });
     })
-    .catch();
+    .catch(error => console.log(error));
 });
 
 // MISE À JOUR D'UN CHIOTTE (UPDATE)
 
+router.get("/edit/:id", (req,res) => {
+  toiletModel
+  .findById(req.params.id)
+  .then(dbRes => {
+    res.send(dbRes)
+  })
+  .catch(dbErr => res.send(dbErr))
+})
+
+router.post("/edit/:id", (req,res) => {
+  toiletModel
+  .findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+    res.redirect("/dashboard");
+  })
+  .catch(dbErr => res.send(dbErr))
+})
 
 // EFFACEMENT D'UN CHIOTTE (DELETE)
 router.get("/:id/delete", (req, res) => {

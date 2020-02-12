@@ -25,7 +25,10 @@
         <td>{{this.arrondissement}}</td>
         <td>{{this.adresse}}</td>
         <td>{{this.geo_point_2d}}</td>
-        <td>{{this.horaire}}</td>
+        <td>
+            <a href="{{this.horaire}} ">horaire</a>
+          
+            </td>
         <td>{{this.type}}</td>
         <td>{{this.acces_pmr}}</td>
         <td>{{this.relais_bebe}}</td>
@@ -33,9 +36,10 @@
         <td>{{this.rate}}</td>
         <td>{{this.user_descriptions}}</td>
         <td>{{this.user_photos}}</td>
-        <td><a href="/{{this._id}}/edit"><img src="./../images/edit.png" alt="edit"></a></td>
-        <td><a href="/{{this._id}}/delete"><img src="./../images/erase.png" alt="delete this toilet"></a></td>
+        <td><a href="/edit/{{this._id}}"><img src="./../images/edit-solid.svg" alt="edit"></a></td>
+        <td><a href="/{{this._id}}/delete"><img src="./../images/eraser-solid.svg" alt="delete this toilet"></a></td>
         <td><a href="/{{this._id}}"></a></td>
+        <td><a href="/{{this._id}}">voir ce chiotte</a></td>
         </tr>
         {{/each}}
     </tbody>
