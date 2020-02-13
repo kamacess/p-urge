@@ -41,8 +41,8 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
       recordid
     })
     .then(() => {
-      res.send("success toilet successfully created");
-      // res.redirect("/");
+      // res.send("success toilet successfully created");
+      res.redirect("/dashboard");
     })
     .catch(error => console.error(error));
 });
@@ -72,16 +72,20 @@ router.get("/:id", (req, res) => {
 
 // MISE À JOUR D'UN CHIOTTE (UPDATE)
 
-router.get("/edit/:id", (req,res) => {
+router.get("/edit/:id", (req, res) => {
   toiletModel
-  .findById(req.params.id)
-  .then(dbRes => {
-    res.send(dbRes)
-  })
-  .catch(dbErr => res.send(dbErr))
-})
+    .findById(req.params.id)
+    .then(toilet => {
+      res.render("toilet-edit", { toilet });
+    })
+    .catch(error => console.log(error));
+});
 
-router.post("/edit/:id", (req,res) => {
+
+router.post("/edit/:id",uploader.single("user_photos"), (req,res) => {
+// console.log("ici")
+console.log(req.body);
+
   toiletModel
   .findByIdAndUpdate(req.params.id, req.body)
   .then(() => {
