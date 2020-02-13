@@ -41,7 +41,6 @@ function urlToLink (string) {
 };
 
 // remplacer relais bébé par icone
-
 function displayBaby (relaisBebe) {
     const babyIcon = `<img src="./images/baby-solid.svg" alt="baby changing station">`;
     const noBabyIcon = `<img src="./images/times-circle-solid.svg" alt="no baby changing station">`;
