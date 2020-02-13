@@ -13,11 +13,11 @@ export function createList(items) {
         toiletElement.classList.add("element-list")
         toiletElement.innerHTML = `<td>${toilet.arrondissement}</td>
         <td>${toilet.adresse}</td>
-        <td>${toilet.relais_bebe}</td>
-        <td>${toilet.lavabo}</td>
-        <td>${toilet.acces_pmr}</td>
+        <td>${displayBaby(toilet.relais_bebe)}</td>
+        <td>${displaySink(toilet.lavabo)}</td>
+        <td>${displayPRM(toilet.acces_pmr)}</td>
         <td>${toilet.type}</td>
-        <td>${toilet.horaire}</td>
+        <td>${urlToLink(toilet.horaire)}</td>
         <td>${toilet.rate}</td>`
         containerElement.appendChild(toiletElement);
     })
@@ -28,26 +28,57 @@ export function createList(items) {
 
 // transformer url en lien
 function urlToLink (string) {
+    const maybe = `<img src="./images/question-circle-solid.svg" alt="we don't know">`
     if (!string) {
-        string = "unknown";
+        return maybe;
     } else if (
-        string.length > 12 {
-            return string
+        string.length < 12) {
+            return string;
         }
         else {
-            return `<a href=${string}>working hours</a>`
+            return `<a target="_blank" href=${string}>working hours</a>`;
         }
-    )
 };
 
 // remplacer relais bébé par icone
-const babyIcon = ``;
-const noBabyIcon = ``;
-function displayBaby(relaisBebe) {
+
+function displayBaby (relaisBebe) {
+    const babyIcon = `<img src="./images/baby-solid.svg" alt="baby changing station">`;
+    const noBabyIcon = `<img src="./images/times-circle-solid.svg" alt="no baby changing station">`;
     if (!relaisBebe) {
-        return `<img src="">`
+        return noBabyIcon;
+    } else {
+        return babyIcon ;
     }
-}
+};
+
+// remplacer pmr par icones
+function displayPRM (accesPMR) {
+    const pmrIcon = `<img src="./images/accessible.svg" alt="accessible">`;
+    const noPMRIcon = `<img src="./images/times-circle-solid.svg" alt="not accessible">`;
+    if (!accesPMR) {
+        return noPMRIcon;
+    } else {
+        return pmrIcon ;
+    }
+};
+
+// remplacer les éviers par des icones
+function displaySink (sink) {
+    const yesSink   = `<img src="./images/accessible.svg" alt="there is a sink in the stall">`;
+    const noSink    = `<img src="./images/times-circle-solid.svg" alt="no sink in the stall">`;
+    const maybeSink = `<img src="./images/question-circle-solid.svg" alt="we don't know">`;
+
+    if (sink) {
+        return yesSink ;
+    } else if (typeof (sink) == undefined) {
+        return maybeSink ;
+    } else {
+        return noSink ;
+    }
+} ;
+
+
 
 createList(toilets);
 
