@@ -81,5 +81,16 @@ router.post("/signup", exposeFlashMessage, (req, res, next) => {
   }
 });
 
+router.get("/signout", exposeFlashMessage, (req, res) => {
+  if (!req.session.currentUser) {
+    req.flash("error", "log in before you log out...");
+  } else {
+    req.session.destroy(() => {
+      res.locals.isLoggedIn = undefined;
+      res.locals.isAdmin = undefined;
+    });
+  }
+  return res.redirect("/auth/signin");
+});
 
 module.exports = router;

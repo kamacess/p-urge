@@ -11,7 +11,7 @@ function createList(items) {
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.classList.add("element-list")
-        toiletElement.innerHTML = `<td>${toilet.arrondissement}</td>
+        toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/66781528-wc-wc-icono-del-vector.jpg" alt="toilet"></a>${toilet.arrondissement}</td>
         <td>${toilet.adresse}</td>
         <td>${displayBaby(toilet.relais_bebe)}</td>
         <td>${displaySink(toilet.lavabo)}</td>
