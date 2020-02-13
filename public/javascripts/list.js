@@ -23,6 +23,32 @@ export function createList(items) {
     })
 };
 
+
+// fonctions
+
+// transformer url en lien
+function urlToLink (string) {
+    if (!string) {
+        string = "unknown";
+    } else if (
+        string.length > 12 {
+            return string
+        }
+        else {
+            return `<a href=${string}>working hours</a>`
+        }
+    )
+};
+
+// remplacer relais bébé par icone
+const babyIcon = ``;
+const noBabyIcon = ``;
+function displayBaby(relaisBebe) {
+    if (!relaisBebe) {
+        return `<img src="">`
+    }
+}
+
 createList(toilets);
 
 // let currentPage = 1;
