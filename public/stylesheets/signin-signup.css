@@ -9,13 +9,7 @@
     border-radius: 0.5rem;
 }
 
-form.content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fill, 40vh);
-    grid-gap: 1rem;
-    margin: 5vw;
-}
+
 
 .form-title {
     color: black;
