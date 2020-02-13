@@ -126,6 +126,9 @@ body {
   .vert {
     background-color: #c1eccf;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 
