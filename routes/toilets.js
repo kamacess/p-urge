@@ -99,7 +99,7 @@ router.get("/:id/delete", (req, res) => {
   toiletModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
-      res.send("success toilet successfully deleted");
+      res.redirect("/dashboard");
     })
     .catch(error => console.log(error));
 });
