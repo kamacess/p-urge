@@ -89,50 +89,53 @@ router.get("/edit/:id", (req, res) => {
 });
 
 router.post("/edit/:id", uploader.single("user_photos"), (req, res) => {
+  let user_photos
   toiletModel
   .findById(req.params.id)
-  if 
-  //faire un find sur la photo actuelle (then => la valeur de l'image) INCEPTION DE THEN
-  const {
-    adresse,
-    arrondissement,
-    lat,
-    lng,
-    acces_pmr,
-    horaire,
-    type,
-    relais_bebe,
-    lavabo,
-    user_descriptions,
-    rate,
-    user_photos,
-    recordid
-  } = req.body;
-  const geo_point_2d = [lat, lng];
-  toiletModel
-    .findByIdAndUpdate(
-      req.params.id,
-      {
-        adresse,
-        arrondissement,
-        geo_point_2d,
-        acces_pmr,
-        horaire,
-        type,
-        relais_bebe,
-        lavabo,
-        user_descriptions,
-        rate,
-        user_photos,
-        recordid
-      },
-      { new: true }
-    )
-    .then(updatedToilet => {
-      console.log(updatedToilet);
-      res.redirect("/dashboard");
-    })
-    .catch(dbErr => res.send(dbErr));
+  .then(oldToilet => {
+    user_photos = oldToilet.user_photos
+    const {
+      adresse,
+      arrondissement,
+      lat,
+      lng,
+      acces_pmr,
+      horaire,
+      type,
+      relais_bebe,
+      lavabo,
+      user_descriptions,
+      rate,
+      recordid
+    } = req.body;
+    const geo_point_2d = [lat, lng];
+    if (req.file) user_photos = req.file.secure_url
+    toiletModel
+      .findByIdAndUpdate(
+        req.params.id,
+        {
+          adresse,
+          arrondissement,
+          geo_point_2d,
+          acces_pmr,
+          horaire,
+          type,
+          relais_bebe,
+          lavabo,
+          user_descriptions,
+          rate,
+          user_photos,
+          recordid
+        },
+        { new: true }
+      )
+      .then(updatedToilet => {
+        console.log(updatedToilet);
+        res.redirect("/dashboard");
+      })
+      .catch(dbErr => res.send(dbErr));
+  })
+  .catch(error => console.log(error))
 });
 
 // EFFACEMENT D'UN CHIOTTE (DELETE)
