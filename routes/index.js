@@ -1,9 +1,10 @@
 var express = require("express");
 var router = new express.Router();
 const toiletModel = require("../models/Toilet");
+const exposeFlashMessage = require("../middlewares/exposeFlashMessage");
 
 /* GET home page. */
-router.get("/", function (req, res) {
+router.get("/", exposeFlashMessage, function (req, res) {
   toiletModel
     .find()
     .then(toilets => {
