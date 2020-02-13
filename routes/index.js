@@ -34,7 +34,6 @@ router.get("/filter", async (req, res, next) => {
     } else {
       dbRes = await toiletModel.find(finalQuery);
     }
-    debugger
     res.json(dbRes)
 
   } catch (err) {

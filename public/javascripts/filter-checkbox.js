@@ -4,12 +4,14 @@
 //     createList
 // } from "./list.js";
 
+import {clearMarkers, displayMarkers} from "./google.js"
+
 let toiletsToDisplay;
 const toiletsApi = axios.create({
     baseURL: "http://localhost:3000"
 });
 
-export function filterInputs(e) {
+function filterInputs(e) {
     // récupère tous les input checked
     const checkedInputs = document.querySelectorAll('.filters:checked');
 
@@ -35,10 +37,14 @@ export function filterInputs(e) {
             var containerElement = document.getElementById("tbody-list");
             containerElement.innerHTML = "";
             toiletsToDisplay = apiRes.data;
+            // Loop pour nettoyer les markers.
+            //Loop pour remettre les markers;
             let toilets = toiletsToDisplay.sort(function (a, b) {
                 return parseFloat(a.arrondissement) - parseFloat(b.arrondissement);
             });
             toiletsDisplay(toilets);
+            clearMarkers();
+            displayMarkers(toilets);
 
         })
         .catch(apiErr => console.error(apiErr));

@@ -1,11 +1,13 @@
-import { filterInputs } from "./filter-checkbox.js"
 import { toiletsDisplay } from "./filter-checkbox.js"
-
+import {clearMarkers, displayMarkers} from "./google.js"
 const toiletsApi = axios.create({
     baseURL: "http://localhost:3000"
 });
 
 let arrondSelector = document.getElementById("arrondissement");
+
+
+
 
 arrondSelector.onchange = function (e) {
     var selectedArr = e.target.value;
@@ -25,10 +27,14 @@ arrondSelector.onchange = function (e) {
         })
         .then(apiRes => {
             const toiletsToDisplayArr = apiRes.data;
+            // Loop pour nettoyer les markers.
+            //Loop pour remettre les markers;
             let toiletsArr = toiletsToDisplayArr.sort(function (a, b) {
                 return parseFloat(a.arrondissement) - parseFloat(b.arrondissement);
             });
             toiletsDisplay(toiletsArr);
+            clearMarkers();
+            displayMarkers(toiletsArr);
         })
         .catch(apiErr => console.error(apiErr));
 }
