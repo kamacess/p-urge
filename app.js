@@ -2,7 +2,7 @@ console.log("node says : waxOn/waxOff !");
 
 require("dotenv").config();
 require("./config/mongodb");
-// require("./helpers/hbs");
+
 
 const express = require("express");
 const hbs = require("hbs");
@@ -20,6 +20,18 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
+
+
+// custom helper
+hbs.registerHelper('isLink', function (string, options) {
+  if(!string) return `unknown`;
+  if (string.length > 14) {
+     return `<a href="${string}">${"horaires"}</a>`
+  } else {
+    return options.fn(this);
+  }
+});
+
 
 // SESSION SETUP
 app.use(
