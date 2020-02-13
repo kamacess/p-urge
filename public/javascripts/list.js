@@ -11,7 +11,7 @@ function createList(items) {
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.classList.add("element-list")
-        toiletElement.innerHTML = `<td>${toilet.arrondissement}</td>
+        toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/66781528-wc-wc-icono-del-vector.jpg" alt="toilet"></a>${toilet.arrondissement}</td>
         <td>${toilet.adresse}</td>
         <td>${displayBaby(toilet.relais_bebe)}</td>
         <td>${displaySink(toilet.lavabo)}</td>
@@ -42,7 +42,9 @@ export function urlToLink (string) {
 
 // remplacer relais bébé par icone
 
+
 export function displayBaby (relaisBebe) {
+>>>>>>> 06035baaeae3fbc6b84cfd586f1dbfdf57ca8789
     const babyIcon = `<img src="./images/baby-solid.svg" alt="baby changing station">`;
     const noBabyIcon = `<img src="./images/times-circle-solid.svg" alt="no baby changing station">`;
     if (!relaisBebe) {

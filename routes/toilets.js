@@ -6,18 +6,11 @@ const protectRoute = require("../middlewares/protectRoute");
 const protectAdminRoute = require("../middlewares/protectAdminRoute");
 
 // CRÉATION D'UN NOUVEAU CHIOTTE (CREATE)
-router.get("/create-toilet", (req, res) => {
+router.get("/create-toilet", protectRoute, (req, res) => {
   res.render("newtoilet", { scripts: ["userMap"] });
 });
 
 router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
-  let user_photos;
-  if (req.file) {
-    user_photos = req.file.secure_url;
-  } else {
-    const user_photos =
-      "https://res.cloudinary.com/kalash/image/upload/v1581609822/toilet-pictures/purge_jmu5au.jpg";
-  }
   const {
     adresse,
     arrondissement,
@@ -30,8 +23,10 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
     lavabo,
     user_descriptions,
     rate,
+    // user_photos,
     recordid
   } = req.body;
+  console.log(req.body,"ici")
   const geo_point_2d = [lat, lng];
   toiletModel
     .create({
@@ -45,12 +40,11 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
       lavabo,
       user_descriptions,
       rate,
-      user_photos,
+      // user_photos,
       recordid
     })
-    .then(newToilet => {
-      console.log("ici");
-      console.log(newToilet);
+    .then(() => {
+      console.log("ici")
       // res.send("success toilet successfully created");
       res.redirect("/dashboard");
     })
@@ -58,13 +52,16 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
 });
 
 // AFFICHAGE DE TOUS LES CHIOTTES (READ)
-router.get("/dashboard", (req, res) => {
-  toiletModel.find().then(dbRes => {
-    res
-      .render("admin-toilet", { toilets: dbRes })
-      .catch(dbErr => console.error(dbErr));
-  });
+router.get("/dashboard", protectAdminRoute, (req, res) => {
+  toiletModel
+  .find()
+  .then(dbRes => {
+    res.render("admin-toilet", {toilets: dbRes 
+  })
+  .catch(dbErr => console.error(dbErr))
+})
 });
+
 
 // AFFICHAGE D'UN SEUL CHIOTTE
 
@@ -78,6 +75,7 @@ router.get("/:id", (req, res) => {
 });
 
 // MISE À JOUR D'UN CHIOTTE (UPDATE)
+
 
 router.get("/edit/:id", (req, res) => {
   toiletModel
@@ -147,5 +145,6 @@ router.get("/:id/delete", protectAdminRoute, (req, res) => {
     })
     .catch(error => console.log(error));
 });
+
 
 module.exports = router;
