@@ -1,8 +1,8 @@
 <div>
   <form method="post" action="/edit/{{toilet._id}}" method="post" class="add-toilet-form" enctype="multipart/form-data"> 
     <h3 class="form-title">Modify the restrooms</h3>
-        <input name="lat" id="mapUser-lat" type="hidden" value="48.864716">
-        <input name="lng" id="mapUser-lng" type="hidden" value="2.349014">
+        <input name="lat" id="mapUserUpdate-lat" type="hidden">
+        <input name="lng" id="mapUserUpdate-lng" type="hidden">
         <input type="hidden" value="1234560000000" name="recordid">
     <div class="form-item-wrapper flexed-item">
       <label for="adresse" class="label"> Address </label>
@@ -13,7 +13,6 @@
     <div class="form-item-wrapper flexed-item">
         <label for="arrondissement" class="label"> Arrondissement </label>
         <select name="arrondissement" id="arrondissement">
-            <option value="">--Please choose an arrondissement--</option>
             <option value="75001">1er</option>
             <option value="75002">2e</option>
             <option value="75003">3e</option>
@@ -37,7 +36,7 @@
             <option value="75020">20e</option>
         </select>
     </div>
-   <div id="mapUser"></div>
+   <div id="mapUserUpdate"></div>
     <div class="form-item-wrapper flexed-item">
       <label for="acces_pmr" class="label">Description</label>
       <p>Is it accessible to persons with reduced mobility?</p>
@@ -56,9 +55,8 @@
 <div class="form-item-wrapper flexed-item">
         <label for="type" class="label">Type de toilettes</label>
         <select name="type" id="type">
-            <option value="">--Please choose a type--</option>
             <option value="URINOIR">urinoir</option>
-            <option value="TOILETTES">toilettes</option>
+            <option default value="TOILETTES">toilettes</option>
             <option value="SANISETTE">sanisette</option>
         </select>
     </div>
@@ -99,10 +97,9 @@
     <div class="form-item-wrapper flexed-item">
       <label for="rate">Rate these restrooms</label>
         <select name="rate" id="rate">
-            <option value="">--Please choose an option--</option>
             <option value="0">terrible</option>
             <option value="1">OK</option>
-            <option value="3">great</option>
+            <option value="2">great</option>
         </select>
     </div>
 

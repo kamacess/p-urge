@@ -7,7 +7,7 @@ function initMap() {
     lng: 2.3522219
   };
 
-  var map = new google.maps.Map(document.getElementById("mapUser"), {
+  var map = new google.maps.Map(document.getElementById("mapUserUpdate"), {
     zoom: 4,
     center: paname
   });
@@ -22,8 +22,8 @@ function placeMarkerAndPanTo(latLng, map) {
     map: map    
   });
   map.panTo(latLng);
-  var lat = document.querySelector("#mapUser-lat")
-  var lng = document.querySelector("#mapUser-lng")
+  var lat = document.querySelector("#mapUserUpdate-lat")
+  var lng = document.querySelector("#mapUserUpdate-lng")
   lng.value = latLng.lng()
   lat.value = latLng.lat()
 }

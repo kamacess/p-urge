@@ -8,7 +8,7 @@ router.get("/create-toilet", (req, res) => {
   res.render("newtoilet", { scripts: ["userMap"] });
 });
 
-router.post("/create-toilet", uploader.single("toto"), (req, res) => {
+router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
   const {
     adresse,
     arrondissement,
@@ -74,11 +74,12 @@ router.get("/:id", (req, res) => {
 
 // MISE À JOUR D'UN CHIOTTE (UPDATE)
 
+
 router.get("/edit/:id", (req, res) => {
   toiletModel
     .findById(req.params.id)
     .then(toilet => {
-      res.render("toilet-edit", { toilet });
+      res.render("toilet-edit", { toilet, scripts: ["userUpdateMap"] });
     })
     .catch(error => console.log(error));
 });
@@ -86,7 +87,7 @@ router.get("/edit/:id", (req, res) => {
 
 router.post("/edit/:id",uploader.single("user_photos"), (req,res) => {
 // console.log("ici")
-console.log(req.body);
+
 
   toiletModel
   .findByIdAndUpdate(req.params.id, req.body)
