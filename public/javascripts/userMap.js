@@ -11,10 +11,12 @@ function initMap() {
     zoom: 4,
     center: paname
   });
+  
   map.addListener("click", function(e) {
     placeMarkerAndPanTo(e.latLng, map);
   });
 }
+
 
 function placeMarkerAndPanTo(latLng, map) {
   var marker = new google.maps.Marker({

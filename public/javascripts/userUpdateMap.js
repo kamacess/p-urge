@@ -16,10 +16,12 @@ function initMap() {
   });
 }
 
+
 function placeMarkerAndPanTo(latLng, map) {
   var marker = new google.maps.Marker({
     position: latLng,
-    map: map    
+    map: map,
+    animation: google.maps.Animation.DROP,
   });
   map.panTo(latLng);
   var lat = document.querySelector("#mapUserUpdate-lat")
