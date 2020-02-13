@@ -7,8 +7,6 @@ const toiletsApi = axios.create({
 let arrondSelector = document.getElementById("arrondissement");
 
 
-
-
 arrondSelector.onchange = function (e) {
     var selectedArr = e.target.value;
 

@@ -2,9 +2,11 @@ const express = require("express");
 const router = new express.Router();
 const toiletModel = require("../models/Toilet");
 const uploader = require("../config/cloudinary");
+const protectRoute = require("../middlewares/protectRoute");
+const protectAdminRoute = require("../middlewares/protectAdminRoute");
 
 // CRÉATION D'UN NOUVEAU CHIOTTE (CREATE)
-router.get("/create-toilet", (req, res) => {
+router.get("/create-toilet", protectRoute, (req, res) => {
   res.render("newtoilet", { scripts: ["userMap"] });
 });
 
@@ -50,7 +52,7 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
 });
 
 // AFFICHAGE DE TOUS LES CHIOTTES (READ)
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", protectAdminRoute, (req, res) => {
   toiletModel
   .find()
   .then(dbRes => {
@@ -98,7 +100,7 @@ router.post("/edit/:id",uploader.single("user_photos"), (req,res) => {
 })
 
 // EFFACEMENT D'UN CHIOTTE (DELETE)
-router.get("/:id/delete", (req, res) => {
+router.get("/:id/delete", protectAdminRoute, (req, res) => {
   toiletModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {
