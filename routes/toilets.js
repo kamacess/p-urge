@@ -2,13 +2,15 @@ const express = require("express");
 const router = new express.Router();
 const toiletModel = require("../models/Toilet");
 const uploader = require("../config/cloudinary");
+const protectRoute = require("../middlewares/protectRoute");
+const protectAdminRoute = require("../middlewares/protectAdminRoute");
 
 // CRÉATION D'UN NOUVEAU CHIOTTE (CREATE)
-router.get("/create-toilet", (req, res) => {
+router.get("/create-toilet", protectRoute, (req, res) => {
   res.render("newtoilet", { scripts: ["userMap"] });
 });
 
-router.post("/create-toilet", uploader.single("toto"), (req, res) => {
+router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
   const {
     adresse,
     arrondissement,
@@ -24,6 +26,7 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
     // user_photos,
     recordid
   } = req.body;
+  console.log(req.body,"ici")
   const geo_point_2d = [lat, lng];
   toiletModel
     .create({
@@ -41,6 +44,7 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
       recordid
     })
     .then(() => {
+      console.log("ici")
       // res.send("success toilet successfully created");
       res.redirect("/dashboard");
     })
@@ -48,7 +52,7 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
 });
 
 // AFFICHAGE DE TOUS LES CHIOTTES (READ)
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", protectAdminRoute, (req, res) => {
   toiletModel
   .find()
   .then(dbRes => {
@@ -72,11 +76,12 @@ router.get("/:id", (req, res) => {
 
 // MISE À JOUR D'UN CHIOTTE (UPDATE)
 
+
 router.get("/edit/:id", (req, res) => {
   toiletModel
     .findById(req.params.id)
     .then(toilet => {
-      res.render("toilet-edit", { toilet });
+      res.render("toilet-edit", { toilet, scripts: ["userUpdateMap"] });
     })
     .catch(error => console.log(error));
 });
@@ -84,7 +89,7 @@ router.get("/edit/:id", (req, res) => {
 
 router.post("/edit/:id",uploader.single("user_photos"), (req,res) => {
 // console.log("ici")
-console.log(req.body);
+
 
   toiletModel
   .findByIdAndUpdate(req.params.id, req.body)
@@ -95,7 +100,7 @@ console.log(req.body);
 })
 
 // EFFACEMENT D'UN CHIOTTE (DELETE)
-router.get("/:id/delete", (req, res) => {
+router.get("/:id/delete", protectAdminRoute, (req, res) => {
   toiletModel
     .findByIdAndDelete(req.params.id)
     .then(dbRes => {

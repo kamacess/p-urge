@@ -3,8 +3,17 @@
 //     paginate,
 //     createList
 // } from "./list.js";
+import {
+    urlToLink,
+    displayBaby,
+    displayPRM,
+    displaySink
+} from "./list.js"
 
-import {clearMarkers, displayMarkers} from "./google.js"
+import {
+    clearMarkers,
+    displayMarkers
+} from "./google.js"
 
 let toiletsToDisplay;
 const toiletsApi = axios.create({
@@ -60,15 +69,14 @@ export function toiletsDisplay(items) {
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.innerHTML = `<td>${toilet.arrondissement}</td>
-                        <td>${toilet.adresse}</td>
-                        <td>${toilet.relais_bebe}</td>
-                        <td>${toilet.lavabo}</td>
-                        <td>${toilet.acces_pmr}</td>
-                        <td>${toilet.type}</td>
-                        <td>${toilet.horaire}</td>
-                        <td>${toilet.rate}</td>`
+            <td>${toilet.adresse}</td>
+            <td>${displayBaby(toilet.relais_bebe)}</td>
+            <td>${displaySink(toilet.lavabo)}</td>
+            <td>${displayPRM(toilet.acces_pmr)}</td>
+            <td>${toilet.type}</td>
+            <td>${urlToLink(toilet.horaire)}</td>
+            <td>${toilet.rate}</td>`
 
         toiletsParent.appendChild(toiletElement);
     });
 };
-

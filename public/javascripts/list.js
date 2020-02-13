@@ -7,7 +7,7 @@ let toilets = toiletsFromDB.sort(function (a, b) {
         return parseFloat(a.arrondissement) - parseFloat(b.arrondissement);
     });
 
-export function createList(items) {
+function createList(items) {
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.classList.add("element-list")
@@ -27,7 +27,7 @@ export function createList(items) {
 // fonctions
 
 // transformer url en lien
-function urlToLink (string) {
+export function urlToLink (string) {
     const maybe = `<img src="./images/question-circle-solid.svg" alt="we don't know">`
     if (!string) {
         return maybe;
@@ -41,7 +41,10 @@ function urlToLink (string) {
 };
 
 // remplacer relais bébé par icone
-function displayBaby (relaisBebe) {
+
+
+export function displayBaby (relaisBebe) {
+>>>>>>> 06035baaeae3fbc6b84cfd586f1dbfdf57ca8789
     const babyIcon = `<img src="./images/baby-solid.svg" alt="baby changing station">`;
     const noBabyIcon = `<img src="./images/times-circle-solid.svg" alt="no baby changing station">`;
     if (!relaisBebe) {
@@ -52,7 +55,7 @@ function displayBaby (relaisBebe) {
 };
 
 // remplacer pmr par icones
-function displayPRM (accesPMR) {
+export function displayPRM (accesPMR) {
     const pmrIcon = `<img src="./images/accessible.svg" alt="accessible">`;
     const noPMRIcon = `<img src="./images/times-circle-solid.svg" alt="not accessible">`;
     if (!accesPMR) {
@@ -63,7 +66,7 @@ function displayPRM (accesPMR) {
 };
 
 // remplacer les éviers par des icones
-function displaySink (sink) {
+export function displaySink (sink) {
     const yesSink   = `<img src="./images/accessible.svg" alt="there is a sink in the stall">`;
     const noSink    = `<img src="./images/times-circle-solid.svg" alt="no sink in the stall">`;
     const maybeSink = `<img src="./images/question-circle-solid.svg" alt="we don't know">`;
