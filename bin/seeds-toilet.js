@@ -2,7 +2,7 @@ const toiletModel = require("../models/Toilet");
 const mongoose = require('mongoose');
 
 mongoose
-    .connect('mongodb://localhost/toiletDB', {
+    .connect(process.env.MONGO_URI, {
         useNewUrlParser: true
     })
     .then(x => {
@@ -18,8 +18,8 @@ function deleteUnusefulKeys() {
         delete toilet.fields.geo_shape;
         delete toilet.geometry;
         delete toilet.record_timestamp;
-    })
-};
+    });
+}
 
 function moveProperties() {
     toilets.forEach(toilet => {
@@ -32,7 +32,7 @@ function moveProperties() {
         toilet.relais_bebe = toilet.fields.relais_bebe;
         toilet.url_fiche_equipement = toilet.fields.url_fiche_equipement;
         delete toilet.fields;
-    })
+    });
 };
 
 function ficheEquipement() {

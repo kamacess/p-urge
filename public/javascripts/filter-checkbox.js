@@ -9,30 +9,32 @@ const toiletsApi = axios.create({
     baseURL: "http://localhost:3000"
 });
 
-function filterInputs(e) {
+export function filterInputs(e) {
     // récupère tous les input checked
     const checkedInputs = document.querySelectorAll('.filters:checked');
 
     // fabrique un objet avec les clés (name) de chaque input checked associé à la valeur true
     const search = [...checkedInputs].reduce((a, v) => {
         a[v.name] = true;
-        console.log(a);
         return a;
     }, {});
+
+    let arrondSelector = document.getElementById("arrondissement");
+    let selectedArr = arrondSelector.options[arrondSelector.selectedIndex].value
+
 
     // get le resultat du serveur
     toiletsApi.get("/filter", {
             params: {
-                search
+                search,
+                selectedArr
             }
         })
         .then(apiRes => {
             console.log(apiRes);
             var containerElement = document.getElementById("tbody-list");
-            containerElement.innerHTML = ""
+            containerElement.innerHTML = "";
             toiletsToDisplay = apiRes.data;
-            // console.log(paginate(toiletsToDisplay, 1, 10))
-            // createList(paginate(toiletsToDisplay, 1, 10))
             let toilets = toiletsToDisplay.sort(function (a, b) {
                 return parseFloat(a.arrondissement) - parseFloat(b.arrondissement);
             });
@@ -40,13 +42,13 @@ function filterInputs(e) {
 
         })
         .catch(apiErr => console.error(apiErr));
-}
+};
 
 document.querySelectorAll('.filters').forEach(
     input => input.oninput = filterInputs
 );
 
-function toiletsDisplay(items) {
+export function toiletsDisplay(items) {
     const toiletsParent = document.getElementById("tbody-list");
     toiletsParent.innerHTML = "";
     items.forEach(toilet => {
@@ -63,3 +65,4 @@ function toiletsDisplay(items) {
         toiletsParent.appendChild(toiletElement);
     });
 };
+
