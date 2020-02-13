@@ -24,6 +24,7 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
     // user_photos,
     recordid
   } = req.body;
+  console.log(req.body,"ici")
   const geo_point_2d = [lat, lng];
   toiletModel
     .create({
@@ -41,6 +42,7 @@ router.post("/create-toilet", uploader.single("toto"), (req, res) => {
       recordid
     })
     .then(() => {
+      console.log("ici")
       // res.send("success toilet successfully created");
       res.redirect("/dashboard");
     })
