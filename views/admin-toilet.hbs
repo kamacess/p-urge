@@ -26,9 +26,10 @@
         <td>{{this.adresse}}</td>
         <td>{{this.geo_point_2d}}</td>
         <td>
-            <a href="{{this.horaire}} ">horaire</a>
-          
-            </td>
+            {{#isLink this.horaire}}
+            {{this.horaire}}
+            {{/isLink}}
+        </td>
         <td>{{this.type}}</td>
         <td>{{this.acces_pmr}}</td>
         <td>{{this.relais_bebe}}</td>
