@@ -1,3 +1,5 @@
+console.log("yo");
+
 var toiletsFromDB;
 toiletsFromDB = JSON.parse(document.getElementById("toilets_batch").value);
 var containerElement = document.getElementById("tbody-list");
@@ -44,7 +46,6 @@ export function urlToLink (string) {
 
 
 export function displayBaby (relaisBebe) {
->>>>>>> 06035baaeae3fbc6b84cfd586f1dbfdf57ca8789
     const babyIcon = `<img src="./images/baby-solid.svg" alt="baby changing station">`;
     const noBabyIcon = `<img src="./images/times-circle-solid.svg" alt="no baby changing station">`;
     if (!relaisBebe) {
