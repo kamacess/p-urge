@@ -1,0 +1,61 @@
+.form-container {
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 2vw;
+    background-color: #c1eccf;
+    border-radius: 0.5rem;
+}
+
+form.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, 40vh);
+    grid-gap: 1rem;
+    margin: 5vw;
+}
+
+.form-title {
+    color: black;
+    text-align: center;
+}
+
+.enjoy {
+    width: 40vw;
+    line-height: 7vw;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input {
+    width: 15vw;
+    height: 4vh;
+    border: 1px solid lightgray;
+    margin: 0.5vw;
+    color: #696969;
+}
+
+.label {
+    color: #696969;
+    margin: 0.5vw;
+}
+
+.form-btn {
+    width: 24vw;
+    height: 4vh;
+    border: 1px solid lightgray;
+    border-radius: 50vh;
+    color: #696969;
+    margin: 0.5vw;
+}
+
+.form-sub-infos {
+    color: #696969;
+    margin: 0.5vw;
+}
