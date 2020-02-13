@@ -42,25 +42,4 @@ router.get("/filter", async (req, res, next) => {
   }
 });
 
-router.get("/filter-arr", (req, res) => {
-  console.log("hey filter arr")
-  const arrSelected = JSON.parse(req.query.arrSelected);
-
-  if (arrSelected === "all") {
-    toiletModel
-      .find()
-      .then(toilets => {
-        res.send(toilets)
-      })
-  } else {}
-  toiletModel
-    .find({
-      arrondissement: arrSelected
-    })
-    .then(toilets => {
-      res.send(toilets)
-    })
-    .catch(err => console.log("error", err));
-})
-
 module.exports = router;
