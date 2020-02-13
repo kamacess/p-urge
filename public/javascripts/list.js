@@ -1,3 +1,5 @@
+console.log("yo");
+
 var toiletsFromDB;
 toiletsFromDB = JSON.parse(document.getElementById("toilets_batch").value);
 var containerElement = document.getElementById("tbody-list");
