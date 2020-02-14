@@ -5,7 +5,7 @@
 
 .enjoy {
     width: 40vw;
-    line-height: 7vw;
+    line-height: 4rem;
 }
 
 .form {
@@ -61,16 +61,16 @@
 
 @media  (min-width: 769px) {
    
-.form-container {
-    height: 60vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 1rem;
-    background-color: #c1eccf;
-    border-radius: 0.5rem;
-}
+    .form-container {
+        height: 60vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 1rem;
+        background-color: #c1eccf;
+        border-radius: 0.5rem;
+    }
 }
 
 @media (max-width: 768px) {
