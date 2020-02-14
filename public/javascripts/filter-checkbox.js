@@ -69,7 +69,7 @@ export function toiletsDisplay(items) {
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/eye-regular.svg" alt="toilet"></a>${toilet.arrondissement}</td>
-            <td>${toilet.adresse}</td>
+            <td>${basDeCasse(toilet.adresse)}</td>
             <td>${displayBaby(toilet.relais_bebe)}</td>
             <td>${displaySink(toilet.lavabo)}</td>
             <td>${displayPRM(toilet.acces_pmr)}</td>
