@@ -7,7 +7,8 @@ import {
     urlToLink,
     displayBaby,
     displayPRM,
-    displaySink
+    displaySink,
+    basDeCasse
 } from "./list.js"
 
 import {
@@ -51,6 +52,7 @@ function filterInputs(e) {
             let toilets = toiletsToDisplay.sort(function (a, b) {
                 return parseFloat(a.arrondissement) - parseFloat(b.arrondissement);
             });
+            console.log(toilets);
             toiletsDisplay(toilets);
             clearMarkers();
             displayMarkers(toilets);
@@ -75,7 +77,6 @@ export function toiletsDisplay(items) {
             <td>${displayPRM(toilet.acces_pmr)}</td>
             <td>${toilet.type}</td>
             <td>${urlToLink(toilet.horaire)}</td>`
-
         toiletsParent.appendChild(toiletElement);
     });
 };
