@@ -21,7 +21,7 @@
                 <td>{{toilet.acces_pmr}}</td>
                 <td>{{toilet.relais_bebe}}</td>
                 
-                {{!-- <td>{{#if toilet.lavabo}} <img src="../public/images/sink.png" alt="a sink image"> {{#else}} <img src="../public/images/times-circle-solid.svg" alt="no sink!"> {{/if}}</td> --}}
+                <td>{{#if ifLavabo}} <img src="./images/sink.png" alt="a sink image"> {{else}} <img src="./images/times-circle-solid.svg" alt="no sink!"> {{/if}}</td>
                 <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
             </tr>
         </tbody>

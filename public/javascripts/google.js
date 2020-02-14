@@ -53,7 +53,7 @@ function initMap() {
         lng: toilet.geo_point_2d[1]
       },
       map: map,
-      // icon: icon
+      icon: icon
     });
     markers.push(marker);
     var infoWindowMarker = new google.maps.InfoWindow({
