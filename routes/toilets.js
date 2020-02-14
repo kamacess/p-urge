@@ -77,20 +77,27 @@ router.get("/:id", (req, res) => {
 
 //MISE À JOUR D'UN TOILET PAR UN USER
 
-router.post("/:id", (req, res) => {
+router.post("/:id/userupdate", (req, res) => {
+  console.log("ici")
   const { user_descriptions } = req.body;
   toiletModel
-    .findByIdAndUpdate(
-      req.params.id,
-      {
-        $push : {"user_descriptions" : user_descriptions}
-      },
-      { new: true }
-    )
-    .then(updatedToilet => {
-      res.redirect(`/${req.params.id}`);
+    .findById(req.params.id)
+    .then(() => {
+      toiletModel
+        .findByIdAndUpdate(
+          req.params.id,
+          {
+            user_descriptions
+          },
+          { new: true }
+        )
+        .then(updatedToilet => {
+          console.log(updatedToilet);
+          res.redirect("/");
+        })
+        .catch(dbErr => res.send(dbErr));
     })
-    .catch(dbErr => res.send(dbErr));
+    .catch(error => console.log(error));
 });
 
 // MISE À JOUR D'UN CHIOTTE (UPDATE)

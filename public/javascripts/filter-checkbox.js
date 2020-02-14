@@ -17,7 +17,7 @@ import {
 
 let toiletsToDisplay;
 const toiletsApi = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "https://pipinterest.herokuapp.com/"
 });
 
 function filterInputs(e) {
@@ -68,14 +68,13 @@ export function toiletsDisplay(items) {
     toiletsParent.innerHTML = "";
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
-        toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/66781528-wc-wc-icono-del-vector.jpg" alt="toilet"></a>${toilet.arrondissement}</td>
-            <td>${toilet.adresse}</td>
+        toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/eye-regular.svg" alt="toilet"></a>${toilet.arrondissement}</td>
+            <td>${basDeCasse(toilet.adresse)}</td>
             <td>${displayBaby(toilet.relais_bebe)}</td>
             <td>${displaySink(toilet.lavabo)}</td>
             <td>${displayPRM(toilet.acces_pmr)}</td>
             <td>${toilet.type}</td>
-            <td>${urlToLink(toilet.horaire)}</td>
-            <td>${toilet.rate}</td>`
+            <td>${urlToLink(toilet.horaire)}</td>`
 
         toiletsParent.appendChild(toiletElement);
     });

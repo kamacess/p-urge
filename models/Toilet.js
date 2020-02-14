@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
-
 const toiletSchema = new Schema({
     arrondissement: String,
     adresse: String,
@@ -16,7 +14,5 @@ const toiletSchema = new Schema({
     user_photos: { type : String, default:"https://res.cloudinary.com/kalash/image/upload/v1581609822/toilet-pictures/purge_jmu5au.jpg"},
     recordid: String
 });
-
 const toiletModel = mongoose.model("toilet", toiletSchema);
-
 module.exports = toiletModel;

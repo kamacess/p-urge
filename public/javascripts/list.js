@@ -1,3 +1,4 @@
+console.log("yo");
 
 var toiletsFromDB;
 toiletsFromDB = JSON.parse(document.getElementById("toilets_batch").value);
@@ -12,14 +13,14 @@ function createList(items) {
     items.forEach(toilet => {
         var toiletElement = document.createElement("tr");
         toiletElement.classList.add("element-list")
-        toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/66781528-wc-wc-icono-del-vector.jpg" alt="toilet"></a>${toilet.arrondissement}</td>
+        toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><div><img class="see-toilet" src="../images/eye-regular.svg" alt="toilet"></div></a>${toilet.arrondissement}</td>
         <td>${basDeCasse(toilet.adresse)}</td>
         <td>${displayBaby(toilet.relais_bebe)}</td>
         <td>${displaySink(toilet.lavabo)}</td>
         <td>${displayPRM(toilet.acces_pmr)}</td>
         <td>${basDeCasse(toilet.type)}</td>
         <td>${urlToLink(toilet.horaire)}</td>
-        <td>${toilet.rate}</td>`
+        `
         containerElement.appendChild(toiletElement);
     })
 };
