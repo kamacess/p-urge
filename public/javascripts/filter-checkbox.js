@@ -18,7 +18,7 @@ import {
 
 let toiletsToDisplay;
 const toiletsApi = axios.create({
-    baseURL: "http://localhost:3000/"
+    baseURL: "https://pipinterest.herokuapp.com/"
 });
 
 function filterInputs(e) {
