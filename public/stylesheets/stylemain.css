@@ -15,6 +15,7 @@ body {
     font: 14px Montserrat;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   /*logo*/
@@ -123,6 +124,76 @@ body {
   }
 
   /* about */
+
+  #article-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .img img {
+    width: 10vw;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+  }
+
+  #article-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+
+  }
+
+  #alix h4{
+    grid-column-start:1 ;
+    grid-row-start: 1 ;
+  }
+
+  #alix p {
+    grid-column-start:1 ;
+    grid-row-start: 3 ;
+  }
+
+  #alix .img {
+    grid-row-start: 2 ;
+  }
+
+  #pauline h4{
+    grid-column-start: 2 ;
+    grid-row-start: 1 ;
+  }
+
+  #pauline p{
+    grid-column-start: 2 ;
+    grid-row-start: 3 ;
+  }
+
+  #pauline .img {
+    grid-row-start: 2;
+  }
+
+  #cécile h4{
+    grid-column-start:3 ;
+    grid-row-start: 1 ;
+  }
+
+  #cécile p {
+    grid-column-start: 3 ;
+    grid-row-start: 3 ;
+  }
+
+  #cécile .img {
+    grid-row-start: 2;
+  }
+
+  article h4 {
+    text-align: center;
+    margin: 0.5rem
+  }
+  h3 {
+    margin: 0.75rem
+}
 
   article img {
     width: 5vw;
@@ -279,7 +350,7 @@ body {
     }
   
     .vert #map {
-      height: calc(100vh - 420px);
+      height: calc(100vh - 320px);
     }
   }
 
