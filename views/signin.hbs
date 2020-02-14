@@ -8,27 +8,30 @@
   {{/if}} --}}
 
   <form method="post" action="/auth/signin" class="form">
-  <div class="form-content">
-    <div class="form-item-wrapper flexed-item"></div>
-      <label for="pseudo" class="label">nickname</label>
-      <input id="pseudo" type="text" name="pseudo" class="input" placeholder="toilett4t0R75"
-        required value="toilett4t0R75">
-    </div>
+    <div class="form-content">
 
-      <div class="form-item-wrapper flexed-item">
-      <label for="email" class="label">email</label>
-      <input id="email" type="email" name="email" class="input" placeholder="albert.biceps@gmail.com"
-        required value="yo@gui.com">
-    </div>
+      <div class="form-labels">
+        <label for="pseudo" class="label">nickname</label>
+        <label for="email" class="label">email</label>
+        <label for="password" class="label-ref label">password</label>
+      </div>
 
-    <div class="form-item-wrapper flexed-item">
-      <label for="password" class="label-ref label">password</label>
-      <input id="password" type="password" name="password" class="input-text input" placeholder="••••••" required
-        value="12345">
-    </div>
-</div>
-    <button class="form-btn">log in !</button>
-    <p class="form-sub-infos">don't have an account yet ? <a href="/auth/signup" class="button-link-form">please sign up !</a></p>
+      <div class="form-inputs">
+        <input id="email" type="email" name="email" class="input" placeholder="albert.biceps@gmail.com" required
+          value="yo@gui.com">
+        <input id="pseudo" type="text" name="pseudo" class="input" placeholder="toilett4t0R75" required
+          value="toilett4t0R75">
+        <input id="password" type="password" name="password" class="input-text input" placeholder="••••••" required
+          value="12345">
+      </div>
+
+       </div>
+
+      <button class="form-btn">log in !</button>
+      <p class="form-sub-infos">don't have an account yet ? <a href="/auth/signup" class="button-link-form">please sign
+          up
+          !</a></p>
+
   </form>
 
 </section>
