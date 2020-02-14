@@ -13,25 +13,6 @@
             </tr>
         </thead>
         <tbody>
-<<<<<<< HEAD
-        <tr>
-        <td>{{toilet.arrondissement}}</td>
-        <td>{{toilet.adresse}}</td>
-        <td>{{toilet.horaire}}</td>
-        <td>{{toilet.type}}</td>
-        <td>{{toilet.acces_pmr}}</td>
-        <td>{{toilet.relais_bebe}}</td>
-        <td>{{toilet.lavabo}}</td>
-        <td>{{toilet.user_descriptions}}</td>
-        <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
-        {{#if isLoggedIn}}
-        <label for="Comment the text">Add a comment on this toilet</label>
-        <input type="text" name="commentUser">
-        {{/if}}
-        </tr>
-        </tbody>
-    </table>
-=======
             <tr>
                 <td>{{toilet.arrondissement}}</td>
                 <td>{{toilet.adresse}}</td>
@@ -40,7 +21,7 @@
                 <td>{{toilet.acces_pmr}}</td>
                 <td>{{toilet.relais_bebe}}</td>
                 
-                {{!-- <td>{{#if toilet.lavabo}} <img src="../public/images/" alt=""> {{toilet.lavabo}}</td> --}}
+                {{!-- <td>{{#if toilet.lavabo}} <img src="../public/images/sink.png" alt="a sink image"> {{#else}} <img src="../public/images/times-circle-solid.svg" alt="no sink!"> {{/if}}</td> --}}
                 <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
             </tr>
         </tbody>
@@ -59,7 +40,6 @@
             <td>{{this}}</td>
             {{/each}}
         </tbody>
-
     </table>
     {{#if isLoggedIn}}
     <form action="/{{toilet._id}}" method="post">
@@ -68,4 +48,3 @@
         <button>Add</button>
     </form>
     {{/if}}
->>>>>>> 3c56f89ba94bc8ec79ad1ff273c9631e8ead395d

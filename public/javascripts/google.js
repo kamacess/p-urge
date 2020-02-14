@@ -1,5 +1,5 @@
 var toilets;
-var icon = "../images/chiotte_petit.png"
+var icon = "../images/maps-and-location.png"
 
 var infoWindow;
 export var markers = [];
