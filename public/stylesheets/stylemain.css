@@ -58,10 +58,12 @@ body {
   h1 {
     font-size: 4.5rem;
     margin: 1rem;
+    margin-top: 0;
     color: #f97979;
   }
 
   h2 {
+    margin-bottom: 0;
     font-size: 3rem;
   }
   
@@ -126,6 +128,7 @@ body {
   .vert {
     background-color: #c1eccf;
     margin: 1rem;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -300,13 +303,9 @@ div .img {
       grid-row-end:2 ;
       margin-left: 1rem;
     }
-
-    .vert {
-      height: calc(100vh - 160px);
-    }
   
     .vert #map {
-      height: calc(100vh - 320px);
+      height: 80vh;
     }
   }
 
