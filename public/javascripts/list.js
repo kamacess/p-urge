@@ -14,11 +14,11 @@ function createList(items) {
         var toiletElement = document.createElement("tr");
         toiletElement.classList.add("element-list")
         toiletElement.innerHTML = `<td class="arrondissement"><a href="/${toilet._id}"><img class="see-toilet" src="../images/66781528-wc-wc-icono-del-vector.jpg" alt="toilet"></a>${toilet.arrondissement}</td>
-        <td>${toilet.adresse}</td>
+        <td>${basDeCasse(toilet.adresse)}</td>
         <td>${displayBaby(toilet.relais_bebe)}</td>
         <td>${displaySink(toilet.lavabo)}</td>
         <td>${displayPRM(toilet.acces_pmr)}</td>
-        <td>${toilet.type}</td>
+        <td>${basDeCasse(toilet.type)}</td>
         <td>${urlToLink(toilet.horaire)}</td>
         <td>${toilet.rate}</td>`
         containerElement.appendChild(toiletElement);
@@ -43,8 +43,6 @@ export function urlToLink (string) {
 };
 
 // remplacer relais bébé par icone
-
-
 export function displayBaby (relaisBebe) {
     const babyIcon = `<img src="./images/baby-solid.svg" alt="baby changing station">`;
     const noBabyIcon = `<img src="./images/times-circle-solid.svg" alt="no baby changing station">`;
@@ -65,6 +63,11 @@ export function displayPRM (accesPMR) {
         return pmrIcon ;
     }
 };
+
+// passer le texte en bas de casse 
+export function basDeCasse(texte) {
+    return texte.toLowerCase();
+}
 
 // remplacer les éviers par des icones
 export function displaySink (sink) {
