@@ -8,6 +8,11 @@
     line-height: 4rem;
 }
 
+.sign header {
+    margin: 2.5rem;
+}
+
+
 .form {
     display: flex;
     flex-direction: column;
@@ -34,7 +39,7 @@
     width: 12rem;
     height: 2rem;
     border: 1px solid lightgray;
-    margin: 0.5vw;
+    margin: 0.5rem;
     color: #696969;
     border-radius: 0.5rem;
     padding-left: 0.5rem;
@@ -56,7 +61,7 @@
 
 .form-sub-infos {
     color: #696969;
-    margin: 0.5vw;
+    margin: 1rem;
 }
 
 @media  (min-width: 769px) {
