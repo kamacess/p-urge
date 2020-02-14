@@ -2,21 +2,20 @@
     <header class="form-header">
         <h2 class="form-title enjoy">enjoy yourself, empty your bladder, and create an account !</h2>
     </header>
+
     <form method="post" action="/auth/signup" class="form">
     <div class="form-content">
-        <div class="form-item-wrapper flexed-item">
+
+        <div class="form-labels">
             <label for="pseudo" class="label">nickname</label>
-            <input class="input" name="pseudo" id="pseudo" type="text" value="toilett4t0R75">
-        </div>
-
-        <div class="form-item-wrapper flexed-item">
             <label for="email" class="label">email</label>
-            <input class="input" name="email" id="email" type="text" value="yo@gui.com">
+            <label for="password" class="label">password</label>
         </div>
 
-        <div class="form-item-wrapper flexed-item">
-            <label for="password" class="label">password</label>
-            <input class="input" name="password" type="password" value="12345">
+        <div class="form-inputs">
+            <input class="input" name="pseudo" id="pseudo" type="text" value="toilett4t0R75">
+            <input class="input" name="email" id="email" type="text" value="yo@gui.com">
+             <input class="input" name="password" type="password" value="12345">
         </div>
 
         {{!-- <div class="row">
