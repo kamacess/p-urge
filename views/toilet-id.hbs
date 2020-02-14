@@ -9,17 +9,12 @@
         <td>{{toilet.acces_pmr}}</td>
         <td>{{toilet.relais_bebe}}</td>
         <td>{{toilet.lavabo}}</td>
-        {{#each toilet.user_descriptions}}
-        <td>{{this}}</td>
-        {{/each}}
+        <td>{{toilet.user_descriptions}}</td>
         <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
+        {{#if isLoggedIn}}
+        <label for="Comment the text">Add a comment on this toilet</label>
+        <input type="text" name="commentUser">
+        {{/if}}
         </tr>
         </tbody>
     </table>
-      {{#if isLoggedIn}}
-        <form action="/{{toilet._id}}" method="post">
-        <label for="Comment the text">Add a comment on this toilet</label>
-        <input type="text" name="user_descriptions">
-        <button>Add</button>
-        </form>
-        {{/if}}

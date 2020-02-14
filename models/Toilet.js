@@ -11,9 +11,9 @@ const toiletSchema = new Schema({
     type: {type: String, enum: ["TOILETTES", "SANISETTE", "LAVATORY", "URINOIR", "WC PUBLICS PERMANENTS"]},
     relais_bebe: Boolean,
     lavabo: Boolean,
-    user_descriptions: [String],
+    user_descriptions: String,
     rate: Number,
-    user_photos: { type : String, default:"https://res.cloudinary.com/kalash/image/upload/v1581609822/toilet-pictures/purge_jmu5au.jpg"},
+    user_photos: String,
     recordid: String
 });
 
