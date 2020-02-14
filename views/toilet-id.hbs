@@ -16,18 +16,23 @@
             <tr>
                 <td>{{toilet.arrondissement}}</td>
                 <td>{{toilet.adresse}}</td>
-                <td>{{toilet.horaire}}</td>
+                <td>{{#hourToLink toilet.horaire}}
+                    
+                    {{/hourToLink}}</td>
                 <td>{{toilet.type}}</td>
-                <td>{{toilet.acces_pmr}}</td>
-                <td>{{toilet.relais_bebe}}</td>
-                
-                <td>{{#if ifLavabo}} <img src="./images/sink.png" alt="a sink image"> {{else}} <img src="./images/times-circle-solid.svg" alt="no sink!"> {{/if}}</td>
+                <td>{{#if isPMR}} <img src="./images/accessible.svg" alt="a baby image"> {{else}} <img
+                        src="./images/times-circle-solid.svg" alt="no baby chanhing station!"> {{/if}}</td>
+                <td>{{#if ifLavabo}} <img src="./images/sink.png" alt="a sink image"> {{else}} <img
+                        src="./images/times-circle-solid.svg" alt="no sink!"> {{/if}}</td>
+                <td>{{#if isRelaisBebe}} <img src="./images/baby-solid.svg" alt="a baby image"> {{else}} <img
+                        src="./images/nobaby.png" alt="no baby chanhing station!"> {{/if}}</td>
+
                 <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
             </tr>
         </tbody>
     </table>
     <table>
-<br>
+        <br>
         <thead>
             <tr>
                 <th>

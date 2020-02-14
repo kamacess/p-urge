@@ -3,7 +3,6 @@ console.log("node says : waxOn/waxOff !");
 require("dotenv").config();
 require("./config/mongodb");
 
-
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
@@ -21,17 +20,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-
 // custom helper
-hbs.registerHelper('isLink', function (string, options) {
-  if(!string) return `unknown`;
+hbs.registerHelper("isLink", function(string, options) {
+  if (!string) return `unknown`;
   if (string.length > 14) {
-     return `<a href="${string}">${"horaires"}</a>`
+    return `<a href="${string}">${"horaires"}</a>`;
   } else {
     return options.fn(this);
   }
 });
 
+hbs.registerHelper("hourToLink", function(string) {
+  console.log(string)
+  const maybe = `<img src="./images/question-circle-solid.svg" alt="we don't know">`;
+  if (!string) {
+    return maybe;
+  } else if (string.length < 12) {
+    return string;
+  } else {
+    return `<a target="_blank" href=${string}>working hours</a>`;
+  }
+});
 
 // SESSION SETUP
 app.use(

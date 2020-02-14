@@ -1,3 +1,2 @@
-const hbs = require('hbs');
 
 

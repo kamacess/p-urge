@@ -71,8 +71,14 @@ router.get("/:id", (req, res) => {
     .findById(req.params.id)
     .then(toilet => {
       let ifLavabo 
+      let isRelaisBebe
+      let isPMR
       if (toilet.lavabo) ifLavabo = true
       else ifLavabo = false
+      if (toilet.relais_bebe) isRelaisBebe = true
+      else isRelaisBebe = false
+      if (toilet.acces_pmr) isPMR = true
+      else isPMR = false
       res.render("toilet-id", { toilet, ifLavabo });
     })
     .catch(error => console.log(error));
