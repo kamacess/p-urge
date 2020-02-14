@@ -1,25 +1,51 @@
 <h2>Know more about your favorite toilet</h1>
     <table>
+        <thead>
+            <tr>
+                <th>Arrondissement</th>
+                <th>Adress</th>
+                <th>Working hours</th>
+                <th>Type of toilet</th>
+                <th>Is there a handicap access ?</th>
+                <th>Is there a sink ?</th>
+                <th>Is there a changing station ?</th>
+                <th>User picture</th>
+            </tr>
+        </thead>
         <tbody>
-        <tr>
-        <td>{{toilet.arrondissement}}</td>
-        <td>{{toilet.adresse}}</td>
-        <td>{{toilet.horaire}}</td>
-        <td>{{toilet.type}}</td>
-        <td>{{toilet.acces_pmr}}</td>
-        <td>{{toilet.relais_bebe}}</td>
-        <td>{{toilet.lavabo}}</td>
-        {{#each toilet.user_descriptions}}
-        <td>{{this}}</td>
-        {{/each}}
-        <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
-        </tr>
+            <tr>
+                <td>{{toilet.arrondissement}}</td>
+                <td>{{toilet.adresse}}</td>
+                <td>{{toilet.horaire}}</td>
+                <td>{{toilet.type}}</td>
+                <td>{{toilet.acces_pmr}}</td>
+                <td>{{toilet.relais_bebe}}</td>
+                
+                {{!-- <td>{{#if toilet.lavabo}} <img src="../public/images/" alt=""> {{toilet.lavabo}}</td> --}}
+                <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
+            </tr>
         </tbody>
     </table>
-      {{#if isLoggedIn}}
-        <form action="/{{toilet._id}}" method="post">
+    <table>
+<br>
+        <thead>
+            <tr>
+                <th>
+                    Users comment
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each toilet.user_descriptions}}
+            <td>{{this}}</td>
+            {{/each}}
+        </tbody>
+
+    </table>
+    {{#if isLoggedIn}}
+    <form action="/{{toilet._id}}" method="post">
         <label for="Comment the text">Add a comment on this toilet</label>
         <input type="text" name="user_descriptions">
         <button>Add</button>
-        </form>
-        {{/if}}
+    </form>
+    {{/if}}

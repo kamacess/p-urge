@@ -1,4 +1,5 @@
 var toilets;
+var icon = "../images/chiotte_petit.png"
 
 var infoWindow;
 export var markers = [];
@@ -46,14 +47,13 @@ function initMap() {
   }
 
   toilets.forEach(toilet => {
-    // var icon = "../images/marker.png"
     var marker = new google.maps.Marker({
       position: {
         lat: toilet.geo_point_2d[0],
         lng: toilet.geo_point_2d[1]
       },
       map: map,
-      // icon: icon
+      icon: icon
     });
     markers.push(marker);
     var infoWindowMarker = new google.maps.InfoWindow({
