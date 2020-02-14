@@ -51,7 +51,7 @@ app.use(flash());
 
 app.locals.site_url = `http://localhost:${process.env.PORT}`;
 // used in front end to perform ajax request (var instead of hardcoded)
-
+app.use(require("./middlewares/exposeLoginStatus"));
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/", require("./routes/toilets"));

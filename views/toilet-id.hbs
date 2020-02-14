@@ -11,6 +11,10 @@
         <td>{{toilet.lavabo}}</td>
         <td>{{toilet.user_descriptions}}</td>
         <td><img id="user-toiletPicture" src="{{toilet.user_photos}}" alt="a user picture of a toilet <3"></td>
+        {{#if isLoggedIn}}
+        <label for="Comment the text">Add a comment on this toilet</label>
+        <input type="text" name="commentUser">
+        {{/if}}
         </tr>
         </tbody>
     </table>

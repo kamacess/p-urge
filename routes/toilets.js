@@ -11,6 +11,13 @@ router.get("/create-toilet", protectRoute, (req, res) => {
 });
 
 router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
+  let user_photos;
+  if (req.file) {
+    user_photos = req.file.secure_url;
+  } else {
+    const user_photos =
+      "https://res.cloudinary.com/kalash/image/upload/v1581609822/toilet-pictures/purge_jmu5au.jpg";
+  }
   const {
     adresse,
     arrondissement,
@@ -23,10 +30,8 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
     lavabo,
     user_descriptions,
     rate,
-    // user_photos,
     recordid
   } = req.body;
-  console.log(req.body,"ici")
   const geo_point_2d = [lat, lng];
   toiletModel
     .create({
@@ -40,11 +45,10 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
       lavabo,
       user_descriptions,
       rate,
-      // user_photos,
+      user_photos,
       recordid
     })
     .then(() => {
-      console.log("ici")
       // res.send("success toilet successfully created");
       res.redirect("/dashboard");
     })
@@ -53,15 +57,12 @@ router.post("/create-toilet", uploader.single("user_photos"), (req, res) => {
 
 // AFFICHAGE DE TOUS LES CHIOTTES (READ)
 router.get("/dashboard", protectAdminRoute, (req, res) => {
-  toiletModel
-  .find()
-  .then(dbRes => {
-    res.render("admin-toilet", {toilets: dbRes 
-  })
-  .catch(dbErr => console.error(dbErr))
-})
+  toiletModel.find().then(dbRes => {
+    res
+      .render("admin-toilet", { toilets: dbRes })
+      .catch(dbErr => console.error(dbErr));
+  });
 });
-
 
 // AFFICHAGE D'UN SEUL CHIOTTE
 
@@ -74,8 +75,32 @@ router.get("/:id", (req, res) => {
     .catch(error => console.log(error));
 });
 
-// MISE À JOUR D'UN CHIOTTE (UPDATE)
+//MISE À JOUR D'UN TOILET PAR UN USER
 
+router.post("/:id/userupdate", (req, res) => {
+  console.log("ici")
+  const { user_descriptions } = req.body;
+  toiletModel
+    .findById(req.params.id)
+    .then(() => {
+      toiletModel
+        .findByIdAndUpdate(
+          req.params.id,
+          {
+            user_descriptions
+          },
+          { new: true }
+        )
+        .then(updatedToilet => {
+          console.log(updatedToilet);
+          res.redirect("/");
+        })
+        .catch(dbErr => res.send(dbErr));
+    })
+    .catch(error => console.log(error));
+});
+
+// MISE À JOUR D'UN CHIOTTE (UPDATE)
 
 router.get("/edit/:id", (req, res) => {
   toiletModel
@@ -87,53 +112,53 @@ router.get("/edit/:id", (req, res) => {
 });
 
 router.post("/edit/:id", uploader.single("user_photos"), (req, res) => {
-  let user_photos
+  let user_photos;
   toiletModel
-  .findById(req.params.id)
-  .then(oldToilet => {
-    user_photos = oldToilet.user_photos
-    const {
-      adresse,
-      arrondissement,
-      lat,
-      lng,
-      acces_pmr,
-      horaire,
-      type,
-      relais_bebe,
-      lavabo,
-      user_descriptions,
-      rate,
-      recordid
-    } = req.body;
-    const geo_point_2d = [lat, lng];
-    if (req.file) user_photos = req.file.secure_url
-    toiletModel
-      .findByIdAndUpdate(
-        req.params.id,
-        {
-          adresse,
-          arrondissement,
-          geo_point_2d,
-          acces_pmr,
-          horaire,
-          type,
-          relais_bebe,
-          lavabo,
-          user_descriptions,
-          rate,
-          user_photos,
-          recordid
-        },
-        { new: true }
-      )
-      .then(updatedToilet => {
-        console.log(updatedToilet);
-        res.redirect("/dashboard");
-      })
-      .catch(dbErr => res.send(dbErr));
-  })
-  .catch(error => console.log(error))
+    .findById(req.params.id)
+    .then(oldToilet => {
+      user_photos = oldToilet.user_photos;
+      const {
+        adresse,
+        arrondissement,
+        lat,
+        lng,
+        acces_pmr,
+        horaire,
+        type,
+        relais_bebe,
+        lavabo,
+        user_descriptions,
+        rate,
+        recordid
+      } = req.body;
+      const geo_point_2d = [lat, lng];
+      if (req.file) user_photos = req.file.secure_url;
+      toiletModel
+        .findByIdAndUpdate(
+          req.params.id,
+          {
+            adresse,
+            arrondissement,
+            geo_point_2d,
+            acces_pmr,
+            horaire,
+            type,
+            relais_bebe,
+            lavabo,
+            user_descriptions,
+            rate,
+            user_photos,
+            recordid
+          },
+          { new: true }
+        )
+        .then(updatedToilet => {
+          console.log(updatedToilet);
+          res.redirect("/dashboard");
+        })
+        .catch(dbErr => res.send(dbErr));
+    })
+    .catch(error => console.log(error));
 });
 
 // EFFACEMENT D'UN CHIOTTE (DELETE)
@@ -145,6 +170,5 @@ router.get("/:id/delete", protectAdminRoute, (req, res) => {
     })
     .catch(error => console.log(error));
 });
-
 
 module.exports = router;
