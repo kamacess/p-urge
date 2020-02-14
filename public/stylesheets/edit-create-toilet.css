@@ -1,0 +1,52 @@
+.button-primary {
+    border-radius: 5px;
+    background-color: #f6e268;
+    padding: 1rem;
+    font-family: Montserrat;
+    border-style: none;
+}
+
+.form-item-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start
+}
+
+#mapUser {
+    background-color: ;
+}
+.create-vert {
+    background-color:#c1eccf;
+}
+
+.create-rouge {
+    background-color: #f97979;
+}
+
+.create-mauve {
+    background-color: #ebdef2;
+}
+
+.create-rouge,
+.create-vert,
+.create-mauve {
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+#user_photos input,
+input#user_description,
+select#type,
+select#rate,
+select#arrondissement {
+    border-radius: 1rem;
+    border-style: none;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+input#user_description {
+    width: 30vw;
+}
+

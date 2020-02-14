@@ -1,115 +1,119 @@
 <div>
+  <div class="create-vert">
   <form action="/create-toilet" method="post" class="add-toilet-form" enctype="multipart/form-data">
-    <h3 class="form-title">Add new restrooms</h3>
-    <input name="lat" id="mapUser-lat" type="hidden">
-    <input name="lng" id="mapUser-lng" type="hidden">
-    <input type="hidden" value="1234560000000" name="recordid">
-    <div class="form-item-wrapper flexed-item">
-      <label for="adresse" class="label"> Address </label>
-      <input id="adresse" type="text" name="adresse" class="input-text input" placeholder="14 rue Tartempion" required
-        value="34 rue frometon">
-    </div>
+  <h3 class="form-title">Add new restrooms</h3>
+  <input name="lat" id="mapUser-lat" type="hidden">
+  <input name="lng" id="mapUser-lng" type="hidden">
+  <input type="hidden" value="1234560000000" name="recordid">
+  <div class="form-item-wrapper flexed-item">
+  <label for="adresse" class="label"> Address </label>
+  <input id="adresse" type="text" name="adresse" class="input-text input" placeholder="14 rue Tartempion" required
+  value="34 rue frometon">
+  </div></div>
 
-    <div class="form-item-wrapper flexed-item">
-      <label for="arrondissement" class="label"> Arrondissement </label>
-      <select name="arrondissement" id="arrondissement">
-        <option value="75001">1er</option>
-        <option value="75002">2e</option>
-        <option value="75003">3e</option>
-        <option value="75004">4e</option>
-        <option value="75005">5e</option>
-        <option value="75006">6e</option>
-        <option value="75007">7e</option>
-        <option value="75008">8e</option>
-        <option value="75009">9e</option>
-        <option value="75010">10e</option>
-        <option value="75011">11e</option>
-        <option value="75012">12e</option>
-        <option value="75013">13e</option>
-        <option value="75014">14e</option>
-        <option value="75015">15e</option>
-        <option value="75016">16e sud</option>
-        <option value="75116">16e nord</option>
-        <option value="75017">17e</option>
-        <option value="75018">18e</option>
-        <option value="75019">19e</option>
-        <option value="75020">20e</option>
-      </select>
-    </div>
-    <div id="mapUser"></div>
-    <div class="form-item-wrapper flexed-item">
-      <label for="acces_pmr" class="label">Description</label>
-      <p>Is it accessible to persons with reduced mobility?</p>
 
-      <div>
-        <input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="true">
-        <label for="acces_pmr" class="label">Yes</label>
-      </div>
+<div class="create-rouge">
+<div class="form-item-wrapper flexed-item">
+<label for="arrondissement" class="label"> Arrondissement </label>
+<select name="arrondissement" id="arrondissement">
+<option value="75001">1er</option>
+<option value="75002">2e</option>
+<option value="75003">3e</option>
+<option value="75004">4e</option>
+<option value="75005">5e</option>
+<option value="75006">6e</option>
+<option value="75007">7e</option>
+<option value="75008">8e</option>
+<option value="75009">9e</option>
+<option value="75010">10e</option>
+<option value="75011">11e</option>
+<option value="75012">12e</option>
+<option value="75013">13e</option>
+<option value="75014">14e</option>
+<option value="75015">15e</option>
+<option value="75016">16e sud</option>
+<option value="75116">16e nord</option>
+<option value="75017">17e</option>
+<option value="75018">18e</option>
+<option value="75019">19e</option>
+<option value="75020">20e</option>
+</select>
+</div>
+<div id="mapUser"></div>
+<div class="form-item-wrapper flexed-item">
+<label for="acces_pmr" class="label">Description</label>
+<p>Is it accessible to persons with reduced mobility?</p>
+
+<div>
+<input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="true">
+<label for="acces_pmr" class="label">Yes</label>
+</div></div>
 
       <div>
         <input type="radio" class="input" id="acces_pmr" name="acces_pmr" value="false" checked>
         <label for="acces_pmr" class="label">No</label>
       </div>
     </div>
-
-    <div class="form-item-wrapper flexed-item">
-      <label for="type" class="label">Type de toilettes</label>
-      <select name="type" id="type">
-        <option value="URINOIR">urinoir</option>
-        <option value="TOILETTES">toilettes</option>
-        <option value="SANISETTE">sanisette</option>
-      </select>
-    </div>
-
-
-    <div class="form-item-wrapper flexed-item">
-      <label for="relais_bebe" class="label">Baby change</label>
-      <p>Is there a baby changing station?</p>
-      <div>
-        <input type="radio" id="relais_bebe" class="input" name="relais_bebe" value="true">
-        <label for="relais_bebe" class="label">Yes</label>
-      </div>
-      <div>
-        <input type="radio" id="relais_bebe" class="input" name="relais_bebe" value="false" checked>
-        <label for="relais_bebe" class="label">No</label>
-      </div>
-    </div>
-
-    <div class="form-item-wrapper flexed-item">
-      <label for="lavabo" class="label">Sink</label>
-      <p>Is there a sink in the bathroom stall?</p>
-      <div>
-        <input type="radio" id="lavabo" class="input" name="lavabo" value="true">
-        <label for="lavabo" class="label">Yes</label>
-      </div>
-      <div>
-        <input type="radio" id="lavabo" class="input" name="lavabo" value="false" checked>
-        <label for="lavabo" class="label">No</label>
-      </div>
-    </div>
-
-    <div class="form-item-wrapper flexed-item">
-      <label for="user_description" class="label">Description</label>
-      <input id="user_description" type="textarea" name="user_description" class="input"
-        placeholder="Ex: Great restrooms, clean, no sink inside">
-    </div>
+<div class="create-mauve">
+<div class="form-item-wrapper flexed-item">
+<label for="type" class="label">Type de toilettes</label>
+<select name="type" id="type">
+<option value="URINOIR">urinoir</option>
+<option value="TOILETTES">toilettes</option>
+<option value="SANISETTE">sanisette</option>
+</select>
+</div>
 
 
-    <div class="form-item-wrapper flexed-item">
-      <label for="rate">Rate these restrooms</label>
-      <select name="rate" id="rate">
-        <option value="0">terrible</option>
-        <option value="1">OK</option>
-        <option value="3">great</option>
-      </select>
-    </div>
+<div class="form-item-wrapper flexed-item">
+<label for="relais_bebe" class="label">Baby change</label>
+<p>Is there a baby changing station?</p>
+<div>
+<input type="radio" id="relais_bebe" class="input" name="relais_bebe" value="true">
+<label for="relais_bebe" class="label">Yes</label>
+</div>
+<div>
+<input type="radio" id="relais_bebe" class="input" name="relais_bebe" value="false" checked>
+<label for="relais_bebe" class="label">No</label>
+</div>
+</div>
 
-    <div class="form-item-wrapper flexed-item">
-      <label for="user_photos" class="label">Picture</label>
-      <input id="user_photos" type="file" name="user_photos" class="input">
-    </div>
+<div class="form-item-wrapper flexed-item">
+<label for="lavabo" class="label">Sink</label>
+<p>Is there a sink in the bathroom stall?</p>
+<div>
+<input type="radio" id="lavabo" class="input" name="lavabo" value="true">
+<label for="lavabo" class="label">Yes</label>
+</div>
+<div>
+<input type="radio" id="lavabo" class="input" name="lavabo" value="false" checked>
+<label for="lavabo" class="label">No</label>
+</div>
+</div>
+
+<div class="form-item-wrapper flexed-item">
+<label for="user_description" class="label">Description</label>
+<input id="user_description" type="textarea" name="user_description" class="input"
+placeholder="Ex: Great restrooms, clean, no sink inside">
+</div>
 
 
-    <button class="button-primary">Add</button>
-  </form>
+<div class="form-item-wrapper flexed-item">
+<label for="rate">Rate these restrooms</label>
+<select name="rate" id="rate">
+<option value="0">terrible</option>
+<option value="1">OK</option>
+<option value="3">great</option>
+</select>
+</div>
+
+  <div class="form-item-wrapper flexed-item">
+  <label for="user_photos" class="label">Picture</label>
+  <input id="user_photos" type="file" name="user_photos" class="input">
+  </div>
+
+
+      <button class="button-primary">Add</button>
+    </form>
+  </div>
 </div>
