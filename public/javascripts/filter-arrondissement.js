@@ -1,7 +1,7 @@
 import { toiletsDisplay } from "./filter-checkbox.js"
 import {clearMarkers, displayMarkers} from "./google.js"
 const toiletsApi = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "https://pipinterest.herokuapp.com/"
 });
 
 let arrondSelector = document.getElementById("arrondissement");
