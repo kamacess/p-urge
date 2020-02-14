@@ -20,7 +20,7 @@ function createList(items) {
         <td>${displayPRM(toilet.acces_pmr)}</td>
         <td>${basDeCasse(toilet.type)}</td>
         <td>${urlToLink(toilet.horaire)}</td>
-        <td>${toilet.rate}</td>`
+        `
         containerElement.appendChild(toiletElement);
     })
 };

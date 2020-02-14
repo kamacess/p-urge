@@ -74,8 +74,7 @@ export function toiletsDisplay(items) {
             <td>${displaySink(toilet.lavabo)}</td>
             <td>${displayPRM(toilet.acces_pmr)}</td>
             <td>${toilet.type}</td>
-            <td>${urlToLink(toilet.horaire)}</td>
-            <td>${toilet.rate}</td>`
+            <td>${urlToLink(toilet.horaire)}</td>`
 
         toiletsParent.appendChild(toiletElement);
     });
