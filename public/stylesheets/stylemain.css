@@ -53,6 +53,7 @@ body {
   }
   #titre {
     margin: 1rem;
+    padding-right: 1rem;
   }
   h1 {
     font-size: 4.5rem;
@@ -143,59 +144,6 @@ article img {
   .img img {
     width: 10vw;
     border-radius: 50%;
-  }
-
-  /* #article-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 5px;
-
-  } */
-/* 
-  #alix h4{
-    grid-column-start:1 ;
-    grid-row-start: 1 ;
-  }
-
-  #alix p {
-    grid-column-start:1 ;
-    grid-row-start: 3 ;
-  }
-
-  #alix .img {
-    grid-row-start: 2 ;
-    justify-self: center;
-  }
-
-  #pauline h4{
-    grid-column-start: 2 ;
-    grid-row-start: 1 ;
-  }
-
-  #pauline p{
-    grid-column-start: 2 ;
-    grid-row-start: 3 ;
-  } */
-
-  /* #pauline .img {
-    grid-row-start: 2;
-    justify-self: center;
-  }
-
-  #cécile h4{
-    grid-column-start:3 ;
-    grid-row-start: 1 ;
-  }
-
-  #cécile p {
-    grid-column-start: 3 ;
-    grid-row-start: 3 ;
-  }
-
-  #cécile .img {
-    grid-row-start: 2;
-    justify-self: center; */
   }
 
   article h4 {
